@@ -1,0 +1,285 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import Lenis from "lenis";
+import { 
+  Download, ArrowRight, Settings, Users, Shield, Star, 
+  WifiOff, Zap, CheckCircle2 
+} from "lucide-react";
+import { CATEGORIES, ALL_TOOLS, getToolColor, getCategoryName } from "../data/tools";
+
+const APP_SCREENSHOTS = [
+  "/assets/images/1.jpeg",
+  "/assets/images/2.jpeg",
+  "/assets/images/3.jpeg",
+  "/assets/images/4.jpeg"
+];
+
+export default function Home() { 
+  const [currentImage, setCurrentImage] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [featuredTools, setFeaturedTools] = useState(ALL_TOOLS.slice(0, 12));
+
+  useEffect(() => { 
+    // Randomize featured tools on client load
+    const availableTools = ALL_TOOLS.filter(t => !t.comingSoon);
+    const shuffled = [...availableTools].sort(() => 0.5 - Math.random());
+    setFeaturedTools(shuffled.slice(0, 12));
+
+    // Smooth Scrolling
+    const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), }); 
+    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); } 
+    requestAnimationFrame(raf); 
+    
+    // Auto-slider for screenshots
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % APP_SCREENSHOTS.length);
+    }, 3000);
+
+    // Auto-slider for featured tools (3 pages of 4 tools = 12 tools)
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 3);
+    }, 4000);
+
+    return () => {
+      lenis.destroy();
+      clearInterval(timer);
+      clearInterval(slideTimer);
+    }; 
+  }, []); 
+  
+  return ( 
+    <div className="flex flex-col min-h-screen bg-neo-bg font-sans selection:bg-neo-yellow"> 
+      <main className="flex-grow"> 
+        {/* HERO SECTION */} 
+        <section className="relative pt-16 pb-24 overflow-hidden border-b-4 border-black bg-neo-bg" style={{ backgroundImage: 'radial-gradient(circle, #e5e7eb 2px, transparent 2.5px)', backgroundSize: '32px 32px' }} > 
+          <div className="container mx-auto px-4 max-w-6xl"> 
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"> 
+              <div className="space-y-6 relative z-10 p-4 -ml-4"> 
+                <div className="inline-block bg-neo-yellow px-6 py-2 border-4 border-black rounded-xl font-black text-5xl shadow-[6px_6px_0px_0px_#000]"> 
+                  150+ 
+                </div> 
+                <h1 className="text-5xl sm:text-6xl md:text-8xl font-black uppercase leading-[0.9] tracking-tighter"> 
+                  ALL-IN-ONE<br />TOOLKIT 
+                </h1> 
+                <div className="inline-block bg-neo-green px-4 py-2 border-4 border-black rounded-xl font-black text-xl md:text-2xl uppercase shadow-[6px_6px_0px_0px_#000]"> 
+                  EVERY TOOL YOU NEED. ALL IN ONE PLACE. 
+                </div> 
+                <p className="text-xl font-bold max-w-lg leading-relaxed mt-4"> 
+                  ToolHub brings 150+ powerful utilities, AI tools, PDF solutions, QR & Barcode, Calculators and more. Fast, secure, offline and 100% free to use. 
+                </p> 
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4"> 
+                  <Link to="/download" className="inline-flex items-center justify-center gap-2 bg-neo-blue text-white font-black uppercase text-lg md:text-xl border-4 border-black rounded-xl px-6 py-4 shadow-[6px_6px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_0px_#000] transition-all w-full sm:w-auto"> 
+                    DOWNLOAD NOW <Download className="w-5 h-5 md:w-6 md:h-6" /> 
+                  </Link> 
+                  <Link to="/tools" className="inline-flex items-center justify-center gap-2 bg-white text-black font-black uppercase text-lg md:text-xl border-4 border-black rounded-xl px-6 py-4 shadow-[6px_6px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_0px_#000] transition-all w-full sm:w-auto"> 
+                    EXPLORE TOOLS <ArrowRight className="w-5 h-5 md:w-6 md:h-6" /> 
+                  </Link> 
+                </div> 
+                <div className="pt-6"> 
+                  <p className="font-bold text-sm uppercase mb-2">AVAILABLE ON</p> 
+                  <a href="#" className="inline-block hover:translate-y-[2px] hover:translate-x-[2px] transition-transform cursor-pointer"> 
+                    <img src="/assets/images/play.png" alt="Get it on Google Play" className="h-[80px] md:h-[90px] w-auto object-contain" />
+                  </a> 
+                </div> 
+              </div> 
+              
+              {/* Mockup Slider */} 
+              <div className="relative flex justify-center lg:justify-end z-10 pt-10"> 
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }} 
+                  animate={{ y: [0, -15, 0], opacity: 1 }} 
+                  transition={{ 
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 0.6 }
+                  }} 
+                  className="relative w-[320px] h-[650px] bg-white border-8 border-black shadow-2xl shadow-black/40 overflow-hidden flex flex-col rounded-3xl" 
+                > 
+                  {/* Dynamic Island */}
+                  <div className="absolute top-2 inset-x-0 mx-auto w-24 h-7 bg-black rounded-full z-50 shadow-md"></div>
+                  
+                  {/* Image Carousel */}
+                  <div className="relative w-full h-full bg-white">
+                    <AnimatePresence>
+                      <motion.img
+                        key={currentImage}
+                        src={APP_SCREENSHOTS[currentImage]}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute inset-0 w-full h-full object-contain bg-white"
+                        alt={`App Screenshot ${currentImage + 1}`}
+                      />
+                    </AnimatePresence>
+                  </div>
+                </motion.div> 
+              </div> 
+            </div> 
+          </div> 
+        </section>
+
+        {/* STATISTICS BAR */} 
+        <section className="bg-white border-b-4 border-black py-4"> 
+          <div className="container mx-auto px-4 max-w-6xl"> 
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4"> 
+              <div className="flex items-center gap-4 flex-1 justify-center md:border-r-4 md:border-black pr-4 py-2"> 
+                <div className="w-12 h-12 bg-neo-purple border-4 border-black rounded-xl flex items-center justify-center shadow-[4px_4px_0px_0px_#000]">
+                  <Settings className="w-6 h-6"/>
+                </div> 
+                <div> 
+                  <div className="text-3xl font-black leading-none">150+</div> 
+                  <div className="text-xs font-bold uppercase tracking-wider">Powerful Tools</div> 
+                </div> 
+              </div> 
+              <div className="flex items-center gap-4 flex-1 justify-center md:border-r-4 md:border-black pr-4 py-2"> 
+                <div className="w-12 h-12 bg-neo-pink border-4 border-black rounded-xl flex items-center justify-center shadow-[4px_4px_0px_0px_#000]">
+                  <Users className="w-6 h-6"/>
+                </div> 
+                <div> 
+                  <div className="text-3xl font-black leading-none">50K+</div> 
+                  <div className="text-xs font-bold uppercase tracking-wider">Happy Users</div> 
+                </div> 
+              </div> 
+              <div className="flex items-center gap-4 flex-1 justify-center md:border-r-4 md:border-black pr-4 py-2"> 
+                <div className="w-12 h-12 bg-neo-green border-4 border-black rounded-xl flex items-center justify-center shadow-[4px_4px_0px_0px_#000]">
+                  <Shield className="w-6 h-6"/>
+                </div> 
+                <div> 
+                  <div className="text-3xl font-black leading-none">100%</div> 
+                  <div className="text-xs font-bold uppercase tracking-wider">Safe & Secure</div> 
+                </div> 
+              </div> 
+              <div className="flex items-center gap-4 flex-1 justify-center py-2"> 
+                <div className="w-12 h-12 bg-neo-yellow border-4 border-black rounded-xl flex items-center justify-center shadow-[4px_4px_0px_0px_#000]">
+                  <Star className="w-6 h-6 fill-black"/>
+                </div> 
+                <div> 
+                  <div className="text-3xl font-black leading-none">4.9★</div> 
+                  <div className="text-xs font-bold uppercase tracking-wider">Play Store Rating</div> 
+                </div> 
+              </div> 
+            </div> 
+          </div> 
+        </section>
+
+        {/* CATEGORIES SECTION */} 
+        <section className="py-20 bg-neo-bg border-b-4 border-black" style={{ backgroundImage: 'radial-gradient(circle, #e5e7eb 1px, transparent 1.5px)', backgroundSize: '40px 40px', backgroundPosition: 'center' }} > 
+          <div className="container mx-auto px-4 max-w-6xl"> 
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 bg-neo-bg p-4 inline-block md:flex -ml-4 w-full"> 
+              <div> 
+                <span className="inline-block bg-neo-yellow border-4 border-black rounded-xl font-black px-3 py-1 text-sm uppercase mb-2 shadow-[2px_2px_0px_0px_#000]"> Explore </span> 
+                <h2 className="text-5xl font-black uppercase">Categories</h2> 
+              </div> 
+              <Link to="/tools" className="mt-4 md:mt-0 inline-flex items-center gap-2 bg-white border-4 border-black rounded-xl font-black uppercase px-6 py-3 shadow-[4px_4px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_0px_#000] transition-all"> 
+                VIEW ALL TOOLS <ArrowRight className="w-5 h-5" /> 
+              </Link> 
+            </div> 
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"> 
+              {CATEGORIES.map((cat, idx) => ( 
+                <Link key={idx} to={`/tools/${cat.id}`} className={`${cat.color} border-4 border-black rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[6px_6px_0px_0px_#000] hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_#000] transition-all aspect-square`}> 
+                  <div className="bg-white border-4 border-black rounded-xl p-3 mb-4 shadow-[4px_4px_0px_0px_#000]"> 
+                    {cat.icon} 
+                  </div> 
+                  <h3 className="font-black text-sm uppercase leading-tight mb-1">{cat.name}</h3> 
+                  <p className="font-bold text-[10px] uppercase bg-white/50 px-2 border-2 border-black rounded-lg">
+                    {ALL_TOOLS.filter(t => t.category === cat.id).length} Tools
+                  </p> 
+                </Link> 
+              ))} 
+            </div> 
+          </div> 
+        </section>
+
+        {/* FEATURED TOOLS */} 
+        <section className="py-20 border-b-4 border-black bg-neo-bg"> 
+          <div className="container mx-auto px-4 max-w-6xl"> 
+            <div className="mb-12 inline-block"> 
+              <span className="inline-block bg-neo-yellow border-4 border-black rounded-xl font-black px-3 py-1 text-sm uppercase mb-2 shadow-[2px_2px_0px_0px_#000]"> Trending </span> 
+              <h2 className="text-5xl font-black uppercase">Featured Tools</h2> 
+            </div> 
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={currentSlide}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              >
+                {featuredTools.slice(currentSlide * 4, currentSlide * 4 + 4).map((tool, idx) => ( 
+                  <div 
+                    key={tool.name}
+                    className="bg-white border-4 border-black rounded-xl p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000] hover:translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#000] transition-all relative group cursor-pointer"
+                  > 
+                    <div className="flex gap-4 mb-4 items-start"> 
+                      <div className={`${getToolColor(tool.category)} border-4 border-black rounded-xl p-2 shadow-[2px_2px_0px_0px_#000] shrink-0`}> 
+                        {tool.icon} 
+                      </div> 
+                      <div className="min-w-0 flex-1"> 
+                        <h3 className="font-black text-lg uppercase leading-tight mb-1 break-words">{tool.name}</h3> 
+                        <p className="font-bold text-[10px] uppercase bg-gray-100 px-2 py-0.5 border-2 border-black rounded-lg inline-block text-gray-700 leading-tight">
+                          {getCategoryName(tool.category)}
+                        </p> 
+                      </div> 
+                    </div> 
+                    <div className="absolute bottom-4 right-4"> 
+                      <button className={`bg-black text-white border-4 border-black rounded-xl w-10 h-10 flex items-center justify-center shadow-[2px_2px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all`}> 
+                        <ArrowRight className="w-5 h-5 font-black" /> 
+                      </button> 
+                    </div> 
+                  </div> 
+                ))} 
+              </motion.div>
+            </AnimatePresence> 
+            <div className="flex justify-center mt-12 gap-2"> 
+              {[0, 1, 2].map((dot) => (
+                <button 
+                  key={dot}
+                  onClick={() => setCurrentSlide(dot)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    currentSlide === dot 
+                      ? 'bg-black scale-125' 
+                      : 'bg-gray-300 border-2 border-black hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div> 
+          </div> 
+        </section>
+
+        {/* WHY CHOOSE */} 
+        <section className="bg-neo-bg"> 
+          <div className="flex flex-col lg:flex-row border-b-4 border-black"> 
+            <div className="lg:w-1/3 bg-neo-blue p-12 lg:p-20 border-b-4 lg:border-b-0 lg:border-r-4 border-black flex flex-col justify-center"> 
+              <div className="inline-block bg-neo-yellow border-4 border-black rounded-xl font-black px-3 py-1 text-sm uppercase mb-4 shadow-[2px_2px_0px_0px_#000] w-max"> 
+                Why Choose 
+              </div> 
+              <h2 className="text-5xl font-black uppercase mb-6 leading-none">TOOLHUB?</h2> 
+              <p className="font-bold text-lg">We provide a clean, fast and reliable experience with offline support and regular updates.</p> 
+            </div> 
+            <div className="lg:w-2/3 p-8 lg:p-12"> 
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 h-full"> 
+                {[ 
+                  { title:"100% OFFLINE", desc:"Most tools work without internet.", icon: <WifiOff className="w-10 h-10"/>, color: "bg-neo-purple" }, 
+                  { title:"SECURE", desc:"Your data is safe and private.", icon: <Shield className="w-10 h-10"/>, color: "bg-neo-green" }, 
+                  { title:"FAST & LIGHT", desc:"Optimized for speed and performance.", icon: <Zap className="w-10 h-10"/>, color: "bg-neo-pink" }, 
+                  { title:"EASY TO USE", desc:"Simple, clean and user-friendly.", icon: <CheckCircle2 className="w-10 h-10"/>, color: "bg-neo-yellow" }, 
+                ].map((item, idx) => ( 
+                  <div key={idx} className="bg-white border-4 border-black rounded-xl p-6 flex flex-col items-center text-center shadow-[6px_6px_0px_0px_#000] h-full justify-center hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_#000] transition-all"> 
+                    <div className={`${item.color} border-4 border-black rounded-xl p-4 mb-6 shadow-[2px_2px_0px_0px_#000]`}> 
+                      {item.icon} 
+                    </div> 
+                    <h3 className="font-black text-lg uppercase mb-2 leading-tight">{item.title}</h3> 
+                    <p className="font-bold text-xs">{item.desc}</p> 
+                  </div> 
+                ))} 
+              </div> 
+            </div> 
+          </div> 
+        </section> 
+      </main> 
+    </div> 
+  );
+}
