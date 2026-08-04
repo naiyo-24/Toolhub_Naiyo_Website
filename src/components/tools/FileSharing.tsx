@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Upload, File, Loader2, Copy, Check, Share2 } from 'lucide-react';
-import { API_BASE_URL } from '../../config/api';
+import { API_BASE_URL, formatFileUrl } from '../../config/api';
 
 export function FileSharing() {
   const [file, setFile] = useState<File | null>(null);
@@ -42,7 +42,7 @@ export function FileSharing() {
       
       // The backend now returns the full URL with the actual network IP in absolute_url
       // We fall back to download_path just in case
-      const link = data.absolute_url || `${API_BASE_URL.replace('/api', '')}${data.download_path}`;
+      const link = data.absolute_url ? formatFileUrl(data.absolute_url) : `${API_BASE_URL.replace('/api', '')}${data.download_path}`;
       setShareLink(link);
     } catch (err: any) {
       setError(err.message || 'An error occurred during upload.');

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { API_BASE_URL } from '../../config/api';
+import { API_BASE_URL, formatFileUrl } from '../../config/api';
 import { useAuth } from '../../lib/AuthContext';
 import { Building2, Save, MapPin, Phone, MessageCircle, FileText, Building, User, Hash, Code, Mail, Upload, Loader2, X } from 'lucide-react';
 
@@ -115,7 +115,7 @@ export function BusinessOnboardingModal({ isOpen, onComplete, userEmail }: Busin
       
       if (res.ok) {
         const data = await res.json();
-        setFormData(prev => ({ ...prev, company_logo_url: data.absolute_url }));
+        setFormData(prev => ({ ...prev, company_logo_url: data.absolute_url ? formatFileUrl(data.absolute_url) : '' }));
       } else {
         alert("Failed to upload logo.");
       }

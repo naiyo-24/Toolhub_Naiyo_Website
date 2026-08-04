@@ -1,7 +1,47 @@
-import React from 'react';
-import { Send, MapPin, Mail, User, Phone, Clock, Linkedin, Instagram, Facebook, Youtube, Github } from 'lucide-react';
+import React, { useState } from 'react';
+import { Send, MapPin, Mail, User, Phone, Clock, Linkedin, Instagram, Facebook, Youtube, Github, Loader2, CheckCircle } from 'lucide-react';
+import { API_BASE_URL } from '../config/api';
 
 export default function Contact() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async () => {
+    if (!name || !email || !message) {
+      alert("Please fill out all fields.");
+      return;
+    }
+    
+    setIsLoading(true);
+    setStatus('idle');
+    try {
+      const response = await fetch(`${API_BASE_URL}/contact/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-neo-bg font-sans selection:bg-neo-yellow pt-24 pb-20" style={{ backgroundImage: 'radial-gradient(circle, #e5e7eb 2px, transparent 2.5px)', backgroundSize: '32px 32px' }}>
       <div className="container mx-auto px-4 max-w-6xl">
@@ -124,6 +164,8 @@ export default function Contact() {
                 <input 
                   type="text" 
                   placeholder="JOHN DOE"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full bg-gray-100 border-4 border-black p-4 text-xl font-bold focus:outline-none focus:bg-neo-yellow focus:shadow-[4px_4px_0px_0px_#000] transition-all rounded-xl"
                 />
               </div>
@@ -133,6 +175,8 @@ export default function Contact() {
                 <input 
                   type="email" 
                   placeholder="HELLO@EXAMPLE.COM"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-gray-100 border-4 border-black p-4 text-xl font-bold focus:outline-none focus:bg-neo-yellow focus:shadow-[4px_4px_0px_0px_#000] transition-all rounded-xl"
                 />
               </div>
@@ -142,15 +186,36 @@ export default function Contact() {
                 <textarea 
                   rows={5}
                   placeholder="TYPE YOUR MESSAGE HERE..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="w-full bg-gray-100 border-4 border-black p-4 text-xl font-bold focus:outline-none focus:bg-neo-yellow focus:shadow-[4px_4px_0px_0px_#000] transition-all resize-none rounded-xl"
                 ></textarea>
               </div>
 
+              {status === 'success' && (
+                <div className="bg-neo-green text-black font-bold border-4 border-black p-4 rounded-xl flex items-center gap-2">
+                  <CheckCircle className="w-6 h-6" />
+                  Message sent successfully!
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="bg-neo-pink text-black font-bold border-4 border-black p-4 rounded-xl">
+                  Failed to send message. Please try again.
+                </div>
+              )}
+
               <button 
                 type="button" 
-                className="w-full bg-black text-white font-black uppercase text-2xl border-4 border-black py-4 flex items-center justify-center gap-3 shadow-[8px_8px_0px_0px_#FFD13B] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_0px_#FFD13B] transition-all mt-4 rounded-xl"
+                onClick={handleSubmit}
+                disabled={isLoading}
+                className="w-full bg-black text-white font-black uppercase text-2xl border-4 border-black py-4 flex items-center justify-center gap-3 shadow-[8px_8px_0px_0px_#FFD13B] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_0px_#FFD13B] transition-all mt-4 rounded-xl disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message <Send className="w-6 h-6" />
+                {isLoading ? (
+                  <>Sending... <Loader2 className="w-6 h-6 animate-spin" /></>
+                ) : (
+                  <>Send Message <Send className="w-6 h-6" /></>
+                )}
               </button>
             </form>
           </div>
