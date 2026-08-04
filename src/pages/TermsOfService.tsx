@@ -23,49 +23,72 @@ export default function TermsOfService() {
           </h1>
           
           <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:uppercase prose-p:font-bold prose-p:text-gray-800 space-y-6">
-            <p>Last updated: {new Date().toLocaleDateString()}</p>
+            <p><strong>Effective Date:</strong> August 4, 2026<br/>
+            <strong>Last Updated:</strong> August 4, 2026</p>
             
             <h2 className="text-2xl mt-8 mb-4">1. Acceptance of Terms</h2>
             <p>
-              By accessing and using ToolHub (the "Service"), you agree to be bound by these Terms of Service. If you disagree with any part of the terms, then you do not have permission to access the Service.
+              By downloading, accessing, or using ToolHub, you agree to these Terms of Service. If you do not agree, please do not use the application or website.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">2. Use License</h2>
+            <h2 className="text-2xl mt-8 mb-4">2. Description of Service</h2>
             <p>
-              Permission is granted to temporarily download one copy of the materials (information or software) on ToolHub for personal, non-commercial transitory viewing only.
-            </p>
-            <p>This is the grant of a license, not a transfer of title, and under this license you may not:</p>
-            <ul className="list-disc pl-6 font-bold text-gray-800 space-y-2">
-              <li>Modify or copy the materials;</li>
-              <li>Use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
-              <li>Attempt to decompile or reverse engineer any software contained on ToolHub;</li>
-              <li>Remove any copyright or other proprietary notations from the materials; or</li>
-              <li>Transfer the materials to another person or "mirror" the materials on any other server.</li>
-            </ul>
-
-            <h2 className="text-2xl mt-8 mb-4">3. Disclaimer</h2>
-            <p>
-              The materials on ToolHub are provided on an 'as is' basis. ToolHub makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+              ToolHub provides productivity, utility, AI, business, student, document, image, QR & barcode, calculator, travel, health, and file management tools. Features may change or be updated without prior notice.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">4. Limitations</h2>
+            <h2 className="text-2xl mt-8 mb-4">3. User Accounts</h2>
             <p>
-              In no event shall ToolHub or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on ToolHub, even if ToolHub or an authorized representative has been notified orally or in writing of the possibility of such damage.
+              Some features require Google Sign-In. You are responsible for maintaining the security of your account and for all activities performed using your account.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">5. Revisions and Errata</h2>
+            <h2 className="text-2xl mt-8 mb-4">4. Acceptable Use</h2>
             <p>
-              The materials appearing on ToolHub could include technical, typographical, or photographic errors. ToolHub does not warrant that any of the materials on its website are accurate, complete, or current. We may make changes to the materials contained on its website at any time without notice.
+              You agree not to misuse ToolHub, upload malicious content, attempt unauthorized access, reverse engineer the service, distribute malware, violate applicable laws, or infringe the rights of others.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">6. Governing Law</h2>
+            <h2 className="text-2xl mt-8 mb-4">6. File Processing</h2>
             <p>
-              These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which ToolHub operates, and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.
+              Files uploaded for conversion or processing are handled only to perform the requested task. Users are responsible for ensuring they have the rights to upload and process their files.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">7. Contact Us</h2>
+            <h2 className="text-2xl mt-8 mb-4">7. Intellectual Property</h2>
             <p>
-              If you have any questions about these Terms of Service, please contact us at:
+              All trademarks, branding, logos, designs, software, and content related to ToolHub remain the property of ToolHub or its licensors. You may not copy, redistribute, or modify them without permission.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">8. Privacy</h2>
+            <p>
+              Your use of ToolHub is also governed by our Privacy Policy, which explains how your information is collected, used, and protected.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">9. Third-Party Services</h2>
+            <p>
+              ToolHub may integrate with third-party services such as Google Sign-In, Firebase, Google Play Services, AI providers, and cloud services. Their use is subject to the respective providers' terms and policies.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">10. Limitation of Liability</h2>
+            <p>
+              ToolHub is provided on an 'as is' and 'as available' basis. We do not guarantee uninterrupted service or error-free operation. To the maximum extent permitted by law, ToolHub shall not be liable for indirect, incidental, or consequential damages arising from the use of the service.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">11. Suspension or Termination</h2>
+            <p>
+              We reserve the right to suspend or terminate access to ToolHub if these Terms are violated or if required by law.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">12. Changes to the Terms</h2>
+            <p>
+              We may update these Terms of Service at any time. Continued use of ToolHub after updates constitutes acceptance of the revised Terms.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">13. Governing Law</h2>
+            <p>
+              These Terms shall be governed by the laws applicable in the jurisdiction where ToolHub operates, unless otherwise required by applicable law.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">Contact</h2>
+            <p>
+              If you have any questions about this Privacy Policy, please contact us at:
             </p>
             <ul className="list-none font-bold text-gray-800 space-y-2 mt-4">
               <li><strong>Contact Person:</strong> Debasish Baidya</li>

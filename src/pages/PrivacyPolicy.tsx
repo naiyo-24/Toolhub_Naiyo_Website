@@ -23,48 +23,50 @@ export default function PrivacyPolicy() {
           </h1>
           
           <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:uppercase prose-p:font-bold prose-p:text-gray-800 space-y-6">
-            <p>Last updated: {new Date().toLocaleDateString()}</p>
+            <p><strong>Effective Date:</strong> August 4, 2026<br/>
+            <strong>Last Updated:</strong> August 4, 2026</p>
             
-            <h2 className="text-2xl mt-8 mb-4">1. Introduction</h2>
+            <h2 className="text-2xl mt-8 mb-4">Introduction</h2>
             <p>
-              Welcome to ToolHub ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and use our application.
+              At ToolHub, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application and website. By using ToolHub, you agree to this Privacy Policy.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">2. Data We Collect</h2>
+            <h2 className="text-2xl mt-8 mb-4">Information We Collect</h2>
             <p>
-              ToolHub is designed to be privacy-first. The vast majority of our tools operate entirely locally on your device (offline-first). We do not collect, store, or transmit your personal files, images, or documents to our servers.
-            </p>
-            <p>
-              If you create an account or contact us, we may collect:
-            </p>
-            <ul className="list-disc pl-6 font-bold text-gray-800 space-y-2">
-              <li>Identity Data (such as your name or username)</li>
-              <li>Contact Data (such as your email address)</li>
-              <li>Technical Data (such as internet protocol (IP) address, browser type and version)</li>
-            </ul>
-
-            <h2 className="text-2xl mt-8 mb-4">3. How We Use Your Data</h2>
-            <p>
-              We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
-            </p>
-            <ul className="list-disc pl-6 font-bold text-gray-800 space-y-2">
-              <li>To provide and maintain our Service</li>
-              <li>To notify you about changes to our Service</li>
-              <li>To provide customer support</li>
-              <li>To monitor the usage of our Service</li>
-            </ul>
-
-            <h2 className="text-2xl mt-8 mb-4">4. Third-Party Links</h2>
-            <p>
-              Our website may include links to third-party websites, plug-ins, and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements.
+              Account information (Google Sign-In), uploaded files and documents, device information, and permissions such as Camera, Notifications, File Picker, Internet, and Exact Alarm Scheduling when required.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">5. Data Security</h2>
+            <h2 className="text-2xl mt-8 mb-4">How We Use Information</h2>
             <p>
-              We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed.
+              To authenticate users, provide requested tools, synchronize preferences, generate AI responses, improve performance, send reminders, fix technical issues, and enhance user experience.
             </p>
 
-            <h2 className="text-2xl mt-8 mb-4">6. Contact Us</h2>
+            <h2 className="text-2xl mt-8 mb-4">Data Security</h2>
+            <p>
+              We use reasonable security measures to protect your information. No system can guarantee complete security.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">Third-Party Services</h2>
+            <p>
+              Google Sign-In, Firebase Authentication, Firebase Analytics, Firebase Crashlytics, Google Play Services, and other trusted providers.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">Children's Privacy</h2>
+            <p>
+              ToolHub is not intended for children under 13 years of age.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">Your Rights</h2>
+            <p>
+              You may request access, correction, deletion of your personal data, or withdraw consent where applicable.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">Changes</h2>
+            <p>
+              We may update this policy and publish revisions with an updated effective date.
+            </p>
+
+            <h2 className="text-2xl mt-8 mb-4">Contact</h2>
             <p>
               If you have any questions about this Privacy Policy, please contact us at:
             </p>
@@ -75,6 +77,11 @@ export default function PrivacyPolicy() {
               <li><strong>Address:</strong> Naiyo24 Private Limited, 1/30B, Chittaranjan Colony, Baghajatin, Kolkata, West Bengal 700032, India</li>
               <li><strong>Business Hours:</strong> Mon - Sat: 12:00 PM - 7:00 PM</li>
             </ul>
+
+            <h2 className="text-2xl mt-8 mb-4">Disclaimer</h2>
+            <p>
+              ToolHub is a productivity and utility app. AI responses, calculations, and conversions should be verified before relying on them for important decisions.
+            </p>
           </div>
         </motion.div>
       </div>
