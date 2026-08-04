@@ -33,6 +33,7 @@ export function Footer() {
               <li><Link to="/privacy-policy" className="hover:underline underline-offset-4 decoration-4">Privacy Policy</Link></li> 
               <li><Link to="/terms" className="hover:underline underline-offset-4 decoration-4">Terms of Service</Link></li> 
               <li><Link to="/contact" className="hover:underline underline-offset-4 decoration-4">Contact Us</Link></li> 
+              <li><Link to="/delete-account" className="hover:underline underline-offset-4 decoration-4 text-red-900">Delete Account</Link></li> 
             </ul> 
           </div> 
           

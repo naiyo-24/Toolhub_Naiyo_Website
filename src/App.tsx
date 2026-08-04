@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import DeleteAccount from './pages/DeleteAccount';
 import BusinessToolLayout from './components/layout/BusinessToolLayout';
 import { Navigate } from 'react-router-dom';
 import { SplashScreen } from './components/layout/SplashScreen';
@@ -40,6 +41,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/delete-account" element={<DeleteAccount />} />
           </Routes>
         </main>
         <Footer />
