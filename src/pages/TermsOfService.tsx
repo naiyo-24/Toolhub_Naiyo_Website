@@ -92,7 +92,7 @@ export default function TermsOfService() {
             </p>
             <ul className="list-none font-bold text-gray-800 space-y-2 mt-4">
               <li><strong>Contact Person:</strong> Debasish Baidya</li>
-              <li><strong>Email:</strong> <a href="mailto:naiyooffice@gmail.com" className="text-neo-blue hover:underline">naiyooffice@gmail.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:services.naiyo@gmail.com" className="text-neo-blue hover:underline">services.naiyo@gmail.com</a></li>
               <li><strong>Phone:</strong> +91 62891 71798</li>
               <li><strong>Address:</strong> Naiyo24 Private Limited, 1/30B, Chittaranjan Colony, Baghajatin, Kolkata, West Bengal 700032, India</li>
               <li><strong>Business Hours:</strong> Mon - Sat: 12:00 PM - 7:00 PM</li>
