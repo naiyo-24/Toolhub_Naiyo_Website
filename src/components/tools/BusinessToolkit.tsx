@@ -39,9 +39,9 @@ export function BusinessToolkit({ toolId }: { toolId?: string }) {
   const renderTool = () => {
     switch(toolId) {
       case 'invoice-generator':
-        return <InvoiceGenerator isGst={false} />;
+        return <InvoiceGenerator defaultIsGst={false} />;
       case 'gst-billing':
-        return <InvoiceGenerator isGst={true} />;
+        return <InvoiceGenerator defaultIsGst={true} />;
       case 'quotation-gen':
         return <QuotationGenerator />;
       case 'receipt-generator':

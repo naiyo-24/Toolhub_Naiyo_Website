@@ -1,0 +1,15 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: toolhub_frontend
+    ports:
+      - "3003:3003"
+    restart: unless-stopped
+    networks:
+      - toolhub_net
+
+networks:
+  toolhub_net:
+    driver: bridge
