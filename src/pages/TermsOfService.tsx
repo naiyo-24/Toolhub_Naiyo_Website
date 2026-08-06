@@ -23,80 +23,83 @@ export default function TermsOfService() {
           </h1>
           
           <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:uppercase prose-p:font-bold prose-p:text-gray-800 space-y-6">
-            <p><strong>Effective Date:</strong> August 4, 2026<br/>
-            <strong>Last Updated:</strong> August 4, 2026</p>
-            
+            <p><strong>Effective Date:</strong> August 6, 2026<br/>
+            <strong>Last Updated:</strong> August 6, 2026</p>
+
             <h2 className="text-2xl mt-8 mb-4">1. Acceptance of Terms</h2>
-            <p>
-              By downloading, accessing, or using ToolHub, you agree to these Terms of Service. If you do not agree, please do not use the application or website.
-            </p>
+            <p>By downloading, installing, or using ToolHub24, you agree to these Terms of Service.</p>
+            <p>If you do not agree with these Terms, please discontinue use of the application.</p>
 
             <h2 className="text-2xl mt-8 mb-4">2. Description of Service</h2>
-            <p>
-              ToolHub provides productivity, utility, AI, business, student, document, image, QR & barcode, calculator, travel, health, and file management tools. Features may change or be updated without prior notice.
-            </p>
+            <p>ToolHub24 provides productivity and utility tools including document tools, PDF tools, image tools, calculators, QR and barcode utilities, student tools, business tools, health utilities, travel tools, reminders, and other productivity features.</p>
+            <p>Features may change or be updated at any time.</p>
 
             <h2 className="text-2xl mt-8 mb-4">3. User Accounts</h2>
-            <p>
-              Some features require Google Sign-In. You are responsible for maintaining the security of your account and for all activities performed using your account.
-            </p>
+            <p>Some features require Google Sign-In.</p>
+            <p>You are responsible for maintaining the security of your account.</p>
 
             <h2 className="text-2xl mt-8 mb-4">4. Acceptable Use</h2>
-            <p>
-              You agree not to misuse ToolHub, upload malicious content, attempt unauthorized access, reverse engineer the service, distribute malware, violate applicable laws, or infringe the rights of others.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">6. File Processing</h2>
-            <p>
-              Files uploaded for conversion or processing are handled only to perform the requested task. Users are responsible for ensuring they have the rights to upload and process their files.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">7. Intellectual Property</h2>
-            <p>
-              All trademarks, branding, logos, designs, software, and content related to ToolHub remain the property of ToolHub or its licensors. You may not copy, redistribute, or modify them without permission.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">8. Privacy</h2>
-            <p>
-              Your use of ToolHub is also governed by our Privacy Policy, which explains how your information is collected, used, and protected.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">9. Third-Party Services</h2>
-            <p>
-              ToolHub may integrate with third-party services such as Google Sign-In, Firebase, Google Play Services, AI providers, and cloud services. Their use is subject to the respective providers' terms and policies.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">10. Limitation of Liability</h2>
-            <p>
-              ToolHub is provided on an 'as is' and 'as available' basis. We do not guarantee uninterrupted service or error-free operation. To the maximum extent permitted by law, ToolHub shall not be liable for indirect, incidental, or consequential damages arising from the use of the service.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">11. Suspension or Termination</h2>
-            <p>
-              We reserve the right to suspend or terminate access to ToolHub if these Terms are violated or if required by law.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">12. Changes to the Terms</h2>
-            <p>
-              We may update these Terms of Service at any time. Continued use of ToolHub after updates constitutes acceptance of the revised Terms.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">13. Governing Law</h2>
-            <p>
-              These Terms shall be governed by the laws applicable in the jurisdiction where ToolHub operates, unless otherwise required by applicable law.
-            </p>
-
-            <h2 className="text-2xl mt-8 mb-4">Contact</h2>
-            <p>
-              If you have any questions about this Privacy Policy, please contact us at:
-            </p>
-            <ul className="list-none font-bold text-gray-800 space-y-2 mt-4">
-              <li><strong>Contact Person:</strong> Debasish Baidya</li>
-              <li><strong>Email:</strong> <a href="mailto:services.naiyo@gmail.com" className="text-neo-blue hover:underline">services.naiyo@gmail.com</a></li>
-              <li><strong>Phone:</strong> +91 62891 71798</li>
-              <li><strong>Address:</strong> Naiyo24 Private Limited, 1/30B, Chittaranjan Colony, Baghajatin, Kolkata, West Bengal 700032, India</li>
-              <li><strong>Business Hours:</strong> Mon - Sat: 12:00 PM - 7:00 PM</li>
+            <p>You agree not to:</p>
+            <ul className="list-disc pl-6 font-bold text-gray-800 space-y-2">
+              <li>Upload malicious files</li>
+              <li>Attempt unauthorized access</li>
+              <li>Reverse engineer the application</li>
+              <li>Violate applicable laws</li>
+              <li>Interfere with other users</li>
+              <li>Misuse the services</li>
             </ul>
+
+            <h2 className="text-2xl mt-8 mb-4">5. File Processing</h2>
+            <p>Files selected by users are processed only to perform the requested operation.</p>
+            <p>Users remain responsible for the legality and ownership of all uploaded content.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">6. Intellectual Property</h2>
+            <p>All trademarks, branding, logos, software, graphics, and content related to ToolHub24 remain the property of ToolHub24 or its licensors.</p>
+            <p>Unauthorized copying, redistribution, or modification is prohibited.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">7. Privacy</h2>
+            <p>Your use of ToolHub24 is also governed by our Privacy Policy.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">8. Third-Party Services</h2>
+            <p>ToolHub24 integrates with services such as:</p>
+            <ul className="list-disc pl-6 font-bold text-gray-800 space-y-2">
+              <li>Google Sign-In</li>
+              <li>Firebase Authentication</li>
+              <li>Google Play Services</li>
+            </ul>
+            <p>These services operate under their own terms and privacy policies.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">9. Limitation of Liability</h2>
+            <p>ToolHub24 is provided on an "AS IS" and "AS AVAILABLE" basis.</p>
+            <p>We make no guarantees regarding uninterrupted service, accuracy, or availability.</p>
+            <p>To the fullest extent permitted by law, ToolHub24 shall not be liable for indirect, incidental, consequential, or special damages arising from the use of the application.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">10. Suspension or Termination</h2>
+            <p>We may suspend or terminate access to ToolHub24 if these Terms are violated or where required by applicable law.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">11. Changes to the Terms</h2>
+            <p>We reserve the right to modify these Terms at any time.</p>
+            <p>Continued use of ToolHub24 after updates constitutes acceptance of the revised Terms.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">12. Governing Law</h2>
+            <p>These Terms shall be governed by the laws of the Republic of India.</p>
+            <p>Any disputes shall be subject to the jurisdiction of the courts located in Kolkata, West Bengal.</p>
+
+            <h2 className="text-2xl mt-8 mb-4">13. Contact Information</h2>
+            <ul className="list-none font-bold text-gray-800 space-y-2 mt-4">
+              <li><strong>Company:</strong> Naiyo24 Private Limited</li>
+              <li><strong>Contact Person:</strong> Debasish Baidya</li>
+              <li><strong>Email:</strong> <a href="mailto:naiyooffice@gmail.com" className="text-neo-blue hover:underline">naiyooffice@gmail.com</a></li>
+              <li><strong>Phone:</strong> +91 62891 71798</li>
+              <li>
+                <strong>Address:</strong><br/>
+                1/30B, Chittaranjan Colony<br/>
+                Baghajatin<br/>
+                Kolkata, West Bengal 700032<br/>
+                India – 700032
+              </li>
+            </ul>
+
           </div>
         </motion.div>
       </div>
