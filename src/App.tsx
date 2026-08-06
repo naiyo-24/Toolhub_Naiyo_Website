@@ -39,7 +39,7 @@ function App() {
             <Route path="/download" element={<DownloadPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/delete-account" element={<DeleteAccount />} />
           </Routes>
