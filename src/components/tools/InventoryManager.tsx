@@ -52,10 +52,13 @@ export function InventoryManager() {
   };
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    if (token) {
+      fetchProducts();
+    }
+  }, [token]);
 
   const fetchProducts = async () => {
+    if (!token) return;
     setIsLoading(true);
     try {
       const res = await fetch(`${API_BASE_URL}/business-tools/inventory`, {
@@ -116,6 +119,9 @@ export function InventoryManager() {
       });
 
       if (!productRes.ok) throw new Error('Failed to create product');
+      
+      const productData = await productRes.json();
+      const actualBarcode = productData.barcode || newProduct.barcode || newProduct.sku;
 
       // Add to Inventory
       const invRes = await fetch(`${API_BASE_URL}/business-tools/inventory`, {
@@ -125,7 +131,7 @@ export function InventoryManager() {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-          barcode: newProduct.barcode || newProduct.sku,
+          barcode: actualBarcode,
           purchase_price: newProduct.purchase_price,
           selling_price: newProduct.selling_price,
           available_stock: newProduct.initial_stock,
