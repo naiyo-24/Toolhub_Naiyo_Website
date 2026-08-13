@@ -21,10 +21,23 @@ export default function Home() {
   const [featuredTools, setFeaturedTools] = useState(ALL_TOOLS.slice(0, 12));
 
   useEffect(() => { 
-    // Randomize featured tools on client load
+    // Select a constant list of featured tools (mix of different categories)
     const availableTools = ALL_TOOLS.filter(t => !t.comingSoon);
-    const shuffled = [...availableTools].sort(() => 0.5 - Math.random());
-    setFeaturedTools(shuffled.slice(0, 12));
+    const targetNames = [
+      'QR Generator', 'JSON Formatter', 'URL Shortener', 'Age Calculator', 
+      'Password Generator', 'File Converter', 'Form Builder', 'WiFi QR Generator',
+      'BMI Calculator', 'Expense Tracker', 'Color Picker', 'Base64 Encoder'
+    ];
+    
+    let fixedTools = availableTools.filter(t => targetNames.includes(t.name));
+    
+    // Pad with other tools if some from targetNames weren't found
+    if (fixedTools.length < 12) {
+      const others = availableTools.filter(t => !targetNames.includes(t.name));
+      fixedTools = [...fixedTools, ...others].slice(0, 12);
+    }
+    
+    setFeaturedTools(fixedTools);
 
     // Smooth Scrolling
     const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), }); 
@@ -209,9 +222,10 @@ export default function Home() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
                 {featuredTools.slice(currentSlide * 4, currentSlide * 4 + 4).map((tool, idx) => ( 
-                  <div 
+                  <Link 
                     key={tool.name}
-                    className="bg-white border-4 border-black rounded-xl p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000] hover:translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#000] transition-all relative group cursor-pointer"
+                    to={`/tool/${tool.id}`}
+                    className="bg-white border-4 border-black rounded-xl p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000] hover:translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#000] transition-all relative group cursor-pointer block"
                   > 
                     <div className="flex gap-4 mb-4 items-start"> 
                       <div className={`${getToolColor(tool.category)} border-4 border-black rounded-xl p-2 shadow-[2px_2px_0px_0px_#000] shrink-0`}> 
@@ -225,11 +239,11 @@ export default function Home() {
                       </div> 
                     </div> 
                     <div className="absolute bottom-4 right-4"> 
-                      <button className={`bg-black text-white border-4 border-black rounded-xl w-10 h-10 flex items-center justify-center shadow-[2px_2px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all`}> 
+                      <div className={`bg-black text-white border-4 border-black rounded-xl w-10 h-10 flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:translate-y-[2px] group-hover:translate-x-[2px] group-hover:shadow-none transition-all`}> 
                         <ArrowRight className="w-5 h-5 font-black" /> 
-                      </button> 
+                      </div> 
                     </div> 
-                  </div> 
+                  </Link> 
                 ))} 
               </motion.div>
             </AnimatePresence> 

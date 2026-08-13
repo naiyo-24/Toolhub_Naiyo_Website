@@ -29,7 +29,9 @@ export default function DownloadPage() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a 
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.naiyo24.tool_hub&pcampaignid=web_share"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center hover:scale-105 active:scale-95 transition-transform cursor-pointer drop-shadow-md hover:drop-shadow-xl"
             >
               <img src="/assets/images/play.png" alt="Get it on Google Play" className="h-[75px] md:h-[90px] w-auto object-contain" />
