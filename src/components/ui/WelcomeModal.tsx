@@ -44,7 +44,7 @@ export default function WelcomeModal() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white border-[6px] border-black rounded-[2rem] shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative flex flex-col lg:flex-row items-center lg:items-stretch"
+              className="bg-white border-[6px] border-black rounded-[2rem] shadow-2xl max-w-3xl w-full max-h-[95vh] overflow-hidden relative flex flex-col lg:flex-row items-center lg:items-stretch"
             >
               {/* Close Button - Always positioned top right of the modal */}
               <button 
@@ -55,7 +55,7 @@ export default function WelcomeModal() {
               </button>
 
               {/* LEFT COLUMN: Content (Visible on all devices) */}
-              <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
+              <div className="w-full lg:w-1/2 p-4 sm:p-6 flex flex-col justify-center">
                 
                 {/* Logo Area */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4">
@@ -71,7 +71,7 @@ export default function WelcomeModal() {
                 </div>
 
                 {/* Main Headline */}
-                <h2 className="text-2xl sm:text-4xl font-black uppercase leading-[1.1] sm:leading-[0.9] tracking-tighter mb-2 sm:mb-4">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-black uppercase leading-[1.1] sm:leading-[0.9] tracking-tighter mb-2 sm:mb-3">
                   ALL YOUR TOOLS,<br/>IN <span className="text-neo-purple">ONE PLACE.</span>
                 </h2>
                 
@@ -80,7 +80,7 @@ export default function WelcomeModal() {
                 </p>
 
                 {/* Features List */}
-                <div className="space-y-3 sm:space-y-6 mb-6 sm:mb-10">
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   <div className="flex items-start gap-3 sm:gap-4">
                     <div className="bg-neo-purple border-4 border-black p-2 sm:p-3 rounded-xl sm:rounded-2xl shrink-0">
                       <LayoutGrid className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -160,7 +160,7 @@ export default function WelcomeModal() {
               <div className="hidden lg:flex w-1/2 bg-gray-50 border-l-[6px] border-black p-8 relative items-center justify-center overflow-hidden rounded-r-[1.5rem]">
                 
                 {/* Decorative Elements */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-neo-purple rounded-full z-0"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-72 lg:h-72 bg-neo-purple rounded-full z-0"></div>
                 
                 {/* Yellow Sparkle */}
                 <svg className="absolute top-8 right-16 w-10 h-10 text-neo-yellow z-10" viewBox="0 0 24 24" fill="currentColor">
@@ -173,21 +173,21 @@ export default function WelcomeModal() {
                 </svg>
                 
                 {/* Phone Mockup Frame */}
-                <div className="relative z-10 w-[260px] h-[520px] bg-[#f8f9fa] rounded-[2.5rem] shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-8 border-black flex flex-col overflow-hidden pt-8">
+                <div className="relative z-10 aspect-[1/2] h-[50vh] max-h-[500px] min-h-[300px] bg-[#f8f9fa] rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-8 border-black flex flex-col overflow-hidden pt-6">
                   {/* Dynamic Island */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-50 shadow-sm"></div>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 lg:w-20 lg:h-6 bg-black rounded-full z-50 shadow-sm"></div>
                   
                   {/* The actual screenshot */}
                   <img 
                     src="/assets/images/1.jpeg" 
                     alt="App Screenshot" 
-                    className="w-full h-full object-cover rounded-b-[2.5rem]"
+                    className="w-full h-full object-cover rounded-b-[2rem]"
                   />
                 </div>
 
                 {/* Bottom Badge */}
-                <div className="absolute bottom-8 right-8 z-20">
-                  <img src="/assets/images/play.png" alt="Get it on Google Play" className="h-[60px] object-contain drop-shadow-lg" />
+                <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 z-20">
+                  <img src="/assets/images/play.png" alt="Get it on Google Play" className="h-[40px] lg:h-[50px] object-contain drop-shadow-lg" />
                 </div>
               </div>
               

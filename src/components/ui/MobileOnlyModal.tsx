@@ -49,8 +49,13 @@ export function MobileOnlyModal({ isOpen, onClose, toolName }: MobileOnlyModalPr
             </p>
             
             <a 
-              href="#"
-              onClick={(e) => e.stopPropagation()}
+              href="https://play.google.com/store/apps/details?id=com.naiyo24.tool_hub"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                e.stopPropagation();
+                onClose();
+              }}
               className="inline-block hover:scale-105 hover:-translate-y-1 transition-transform mt-4"
             >
               <img src="/assets/images/play.png" alt="Get the App" className="h-24 mx-auto object-contain" />

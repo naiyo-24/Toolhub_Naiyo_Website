@@ -78,7 +78,7 @@ export function Navbar() {
                 className="font-bold text-sm bg-gray-100 hover:bg-gray-200 transition-colors px-3 py-1 rounded-lg border-2 border-black flex items-center gap-2 cursor-pointer shadow-[2px_2px_0px_0px_#000]"
               >
                 {user.profile_pic ? (
-                  <img src={user.profile_pic} alt="Profile" className="w-6 h-6 rounded-full border border-black object-cover" />
+                  <img src={user.profile_pic} alt="Profile" className="w-6 h-6 rounded-full border border-black object-cover shrink-0" referrerPolicy="no-referrer" />
                 ) : (
                   <User className="w-4 h-4" />
                 )}
@@ -154,7 +154,7 @@ export function Navbar() {
                   className="font-bold text-sm bg-gray-100 hover:bg-gray-200 transition-colors px-3 py-2 rounded-lg border-2 border-black flex items-center gap-2 shadow-[2px_2px_0px_0px_#000] w-full"
                 >
                   {user.profile_pic ? (
-                    <img src={user.profile_pic} alt="Profile" className="w-6 h-6 rounded-full border border-black object-cover" />
+                    <img src={user.profile_pic} alt="Profile" className="w-6 h-6 rounded-full border border-black object-cover shrink-0" referrerPolicy="no-referrer" />
                   ) : (
                     <User className="w-4 h-4" />
                   )}

@@ -33,7 +33,7 @@ import { DigitalSignature, digitalSignatureInstructions } from '../components/to
 import { CoverLetter, coverLetterInstructions } from '../components/tools/CoverLetter';
 import { IDCardGen, idCardGenInstructions } from '../components/tools/IDCardGen';
 import { DocumentScan, documentScanInstructions } from '../components/tools/DocumentScan';
-import { OCRScanner, ocrScannerInstructions } from '../components/tools/OCRScanner';
+
 import { TextCounter, textCounterInstructions } from '../components/tools/TextCounter';
 import { CaseConverter, caseConverterInstructions } from '../components/tools/CaseConverter';
 import { PasswordGenerator, passwordGeneratorInstructions } from '../components/tools/PasswordGenerator';
@@ -63,6 +63,11 @@ import { CompressPDF, compressPdfInstructions } from '../components/tools/Compre
 import { MergePDF, mergePdfInstructions } from '../components/tools/MergePDF';
 import { PDFPassword, pdfPasswordInstructions } from '../components/tools/PDFPassword';
 import { OCRText, ocrTextInstructions } from '../components/tools/OCRText';
+import { OpenPDF, openPdfInstructions } from '../components/tools/OpenPDF';
+import { ModifyPDF, modifyPdfInstructions } from '../components/tools/ModifyPDF';
+import { UnlockPDF, unlockPdfInstructions } from '../components/tools/UnlockPDF';
+import { PDFToText, pdfToTextInstructions } from '../components/tools/PDFToText';
+import { TextToPDF, textToPdfInstructions } from '../components/tools/TextToPDF';
 
 // Student Toolkit - Batch 1
 import { CGPACalculator, cgpaCalculatorInstructions } from '../components/tools/CGPACalculator';
@@ -219,7 +224,7 @@ const TOOL_REGISTRY: Record<string, { component: React.ComponentType<any>, instr
   'cover-letter': { component: CoverLetter, instructions: coverLetterInstructions },
   'id-card-gen': { component: IDCardGen, instructions: idCardGenInstructions },
   'document-scan': { component: DocumentScan, instructions: documentScanInstructions },
-  'ocr-scanner': { component: OCRScanner, instructions: ocrScannerInstructions },
+
   'text-counter': { component: TextCounter, instructions: textCounterInstructions },
   'case-convertor': { component: CaseConverter, instructions: caseConverterInstructions },
   'password-gen': { component: PasswordGenerator, instructions: passwordGeneratorInstructions },
@@ -249,8 +254,13 @@ const TOOL_REGISTRY: Record<string, { component: React.ComponentType<any>, instr
   'compress-image': { component: CompressImage, instructions: compressImageInstructions },
   'compress-pdf': { component: CompressPDF, instructions: compressPdfInstructions },
   'merge-pdf': { component: MergePDF, instructions: mergePdfInstructions },
-  'ocr-text': { component: OCRText, instructions: ocrTextInstructions },
+  'ocr-scanner': { component: OCRText, instructions: ocrTextInstructions },
   'pdf-password': { component: PDFPassword, instructions: pdfPasswordInstructions },
+  'open-pdf': { component: OpenPDF, instructions: openPdfInstructions },
+  'modify-pdf': { component: ModifyPDF, instructions: modifyPdfInstructions },
+  'unlock-pdf': { component: UnlockPDF, instructions: unlockPdfInstructions },
+  'pdf-to-text': { component: PDFToText, instructions: pdfToTextInstructions },
+  'text-to-pdf': { component: TextToPDF, instructions: textToPdfInstructions },
 
   // Student Toolkit
   'cgpa-calculator': { component: CGPACalculator, instructions: cgpaCalculatorInstructions },

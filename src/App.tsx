@@ -18,7 +18,11 @@ import { Navigate } from 'react-router-dom';
 import { SplashScreen } from './components/layout/SplashScreen';
 import WelcomeModal from './components/ui/WelcomeModal';
 import { AuthProvider } from './lib/AuthContext';
-
+import { DocuForgeProvider } from './pages/docuforge/DocuForgeContext';
+import DocuForgeDashboard from './pages/docuforge/DocuForgeDashboard';
+import WebScanner from './pages/docuforge/WebScanner';
+import ImageEditor from './pages/docuforge/ImageEditor';
+import PDFPreview from './pages/docuforge/PDFPreview';
 function App() {
   return (
     <Router>
@@ -42,6 +46,16 @@ function App() {
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/delete-account" element={<DeleteAccount />} />
+            <Route path="/docuforge/*" element={
+              <DocuForgeProvider>
+                <Routes>
+                  <Route path="" element={<DocuForgeDashboard />} />
+                  <Route path="scan" element={<WebScanner />} />
+                  <Route path="editor" element={<ImageEditor />} />
+                  <Route path="preview" element={<PDFPreview />} />
+                </Routes>
+              </DocuForgeProvider>
+            } />
           </Routes>
         </main>
         <Footer />

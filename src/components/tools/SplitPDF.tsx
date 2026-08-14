@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { FileText, Upload, Scissors, Loader2 } from 'lucide-react';
 import { API_BASE_URL } from '../../config/api';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 export function SplitPDF() {
   const [file, setFile] = useState<File | null>(null);
   const [pageNumbers, setPageNumbers] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [numPages, setNumPages] = useState<number>();
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages);
+  }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -91,17 +100,45 @@ export function SplitPDF() {
             />
           </label>
         ) : (
-          <div className="flex items-center justify-between p-6 bg-neo-yellow border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_#000]">
-            <div className="flex items-center gap-4 overflow-hidden">
-              <FileText className="w-8 h-8 flex-shrink-0" />
-              <span className="font-bold text-lg truncate max-w-[200px] md:max-w-md">{file.name}</span>
+          <div className="flex flex-col gap-6">
+            <div className="flex items-center justify-between p-6 bg-neo-yellow border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_#000]">
+              <div className="flex items-center gap-4 overflow-hidden">
+                <FileText className="w-8 h-8 flex-shrink-0" />
+                <span className="font-bold text-lg truncate max-w-[200px] md:max-w-md">{file.name}</span>
+              </div>
+              <button 
+                onClick={() => { setFile(null); setNumPages(undefined); }}
+                className="px-4 py-2 bg-white border-2 border-black rounded-lg font-black hover:bg-red-100 transition-colors"
+              >
+                Change File
+              </button>
             </div>
-            <button 
-              onClick={() => setFile(null)}
-              className="px-4 py-2 bg-white border-2 border-black rounded-lg font-black hover:bg-red-100 transition-colors"
-            >
-              Change File
-            </button>
+            
+            <div className="border-4 border-black rounded-xl shadow-[8px_8px_0px_0px_#000] overflow-hidden bg-gray-200">
+              <div className="bg-black text-white p-3 font-black uppercase text-center">
+                Document Preview
+              </div>
+              <div className="p-4 flex flex-col items-center gap-6 max-h-[500px] overflow-y-auto">
+                <Document 
+                  file={file} 
+                  onLoadSuccess={onDocumentLoadSuccess} 
+                  className="flex flex-col items-center gap-6 w-full"
+                  loading={<div className="font-bold p-4">Loading preview...</div>}
+                >
+                  {numPages ? Array.from(new Array(numPages), (el, index) => (
+                    <div key={`page_${index + 1}`} className="bg-white p-2 border-4 border-black shadow-[4px_4px_0px_0px_#000] flex flex-col">
+                      <Page 
+                        pageNumber={index + 1} 
+                        renderTextLayer={false} 
+                        renderAnnotationLayer={false} 
+                        width={Math.min(window.innerWidth - 120, 500)}
+                      />
+                      <div className="text-center mt-3 mb-1 font-black text-lg">Page {index + 1}</div>
+                    </div>
+                  )) : null}
+                </Document>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -113,7 +150,7 @@ export function SplitPDF() {
           type="text"
           value={pageNumbers}
           onChange={(e) => setPageNumbers(e.target.value)}
-          placeholder="1, 3, 5"
+          placeholder={numPages ? `e.g. 1, ${Math.min(3, numPages)}` : "1, 3, 5"}
           className="w-full border-4 border-black rounded-xl p-4 font-bold text-lg focus:outline-none focus:ring-4 focus:ring-purple-400/50 transition-all"
         />
       </div>

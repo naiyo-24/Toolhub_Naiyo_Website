@@ -6,6 +6,7 @@ import { CATEGORIES, ALL_TOOLS, getToolColor } from '../data/tools';
 import { ComingSoonModal } from '../components/ui/ComingSoonModal';
 import { MobileOnlyModal } from '../components/ui/MobileOnlyModal';
 import { LoginRequiredModal } from '../components/ui/LoginRequiredModal';
+import { AppPromoModal } from '../components/ui/AppPromoModal';
 import { useAuth } from '../lib/AuthContext';
 
 export default function Category() {
@@ -18,6 +19,14 @@ export default function Category() {
   const [comingSoonTool, setComingSoonTool] = React.useState<string | null>(null);
   const [mobileOnlyTool, setMobileOnlyTool] = React.useState<string | null>(null);
   const [loginRequiredTool, setLoginRequiredTool] = React.useState<string | null>(null);
+  const [showPromo, setShowPromo] = React.useState(false);
+
+  React.useEffect(() => {
+    if (catKey === 'pdf-tools') {
+      const timer = setTimeout(() => setShowPromo(true), 600);
+      return () => clearTimeout(timer);
+    }
+  }, [catKey]);
 
   if (!currentCategory) {
     return (
@@ -76,6 +85,7 @@ export default function Category() {
                   if (tool.comingSoon) setComingSoonTool(tool.name);
                   else if (tool.mobileOnly) setMobileOnlyTool(tool.name);
                   else if (tool.requiresLogin && !user) setLoginRequiredTool(tool.name);
+                  else if (tool.customUrl) navigate(tool.customUrl);
                   else if (tool.category === 'business') navigate(`/business-tools/${tool.id}`);
                   else navigate(`/tool/${tool.id}`);
                 }}
@@ -127,6 +137,10 @@ export default function Category() {
         isOpen={!!loginRequiredTool}
         onClose={() => setLoginRequiredTool(null)}
         toolName={loginRequiredTool || ''}
+      />
+      <AppPromoModal 
+        isOpen={showPromo} 
+        onClose={() => setShowPromo(false)} 
       />
     </div>
   );

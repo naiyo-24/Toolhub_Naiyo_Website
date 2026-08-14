@@ -4,7 +4,8 @@ import { API_BASE_URL } from '../../config/api';
 
 export function PDFPassword() {
   const [file, setFile] = useState<File | null>(null);
-  const [password, setPassword] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const [ownerPassword, setOwnerPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [protectedUrl, setProtectedUrl] = useState<string | null>(null);
@@ -22,8 +23,8 @@ export function PDFPassword() {
 
   const handleProtect = async () => {
     if (!file) return;
-    if (!password) {
-      setError('Please enter a password to encrypt the PDF.');
+    if (!userPassword && !ownerPassword) {
+      setError('Please enter at least one password (User or Owner).');
       return;
     }
     
@@ -33,7 +34,8 @@ export function PDFPassword() {
     
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('password', password);
+    formData.append('user_password', userPassword);
+    formData.append('owner_password', ownerPassword);
 
     try {
       const response = await fetch(`${API_BASE_URL}/file-tools/pdf/protect`, {
@@ -73,7 +75,8 @@ export function PDFPassword() {
   const reset = () => {
     setFile(null);
     setProtectedUrl(null);
-    setPassword('');
+    setUserPassword('');
+    setOwnerPassword('');
     setError('');
   };
 
@@ -120,21 +123,38 @@ export function PDFPassword() {
             </div>
 
             {file && (
-              <div className="bg-gray-50 border-4 border-black p-6 rounded-xl shadow-[4px_4px_0px_0px_#000]">
-                <label className="font-black uppercase block mb-2">Set Password</label>
-                <div className="relative">
-                  <Lock className="w-6 h-6 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                  <input
-                    type="text"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter a strong password"
-                    className="w-full border-4 border-black rounded-xl pl-12 pr-4 py-4 font-bold text-lg focus:outline-none focus:ring-4 focus:ring-neo-pink/50"
-                  />
+              <div className="space-y-6">
+                <div className="bg-gray-50 border-4 border-black p-6 rounded-xl shadow-[4px_4px_0px_0px_#000]">
+                  <h3 className="font-black uppercase mb-4">1. Document Open Password</h3>
+                  <p className="text-sm font-bold text-gray-500 mb-4">Required to simply open and read the file.</p>
+                  <div className="relative">
+                    <Lock className="w-6 h-6 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <input
+                      type="text"
+                      value={userPassword}
+                      onChange={(e) => setUserPassword(e.target.value)}
+                      placeholder="Enter password to open..."
+                      className="w-full border-4 border-black rounded-xl pl-12 pr-4 py-4 font-bold text-lg focus:outline-none focus:ring-4 focus:ring-neo-pink/50"
+                    />
+                  </div>
                 </div>
-                <p className="text-sm font-bold text-gray-500 mt-2">
-                  Make sure to remember this password. The file cannot be opened without it!
-                </p>
+
+                <div className="bg-gray-50 border-4 border-black p-6 rounded-xl shadow-[4px_4px_0px_0px_#000]">
+                  <h3 className="font-black uppercase mb-4 text-neo-blue flex items-center gap-2">
+                    2. Owner Permissions Password <span className="bg-gray-200 text-gray-500 px-2 py-1 rounded text-xs">Optional</span>
+                  </h3>
+                  <p className="text-sm font-bold text-gray-500 mb-4">Required to print, copy, or edit the file. Leave User Password blank if you only want to restrict these actions.</p>
+                  <div className="relative">
+                    <Lock className="w-6 h-6 absolute left-4 top-1/2 -translate-y-1/2 text-neo-blue/50" />
+                    <input
+                      type="text"
+                      value={ownerPassword}
+                      onChange={(e) => setOwnerPassword(e.target.value)}
+                      placeholder="Enter owner password..."
+                      className="w-full border-4 border-black rounded-xl pl-12 pr-4 py-4 font-bold text-lg focus:outline-none focus:ring-4 focus:ring-neo-blue/50"
+                    />
+                  </div>
+                </div>
               </div>
             )}
 
@@ -195,7 +215,7 @@ export function PDFPassword() {
 
 export const pdfPasswordInstructions = [
   "Upload the PDF document you want to secure.",
-  "Enter a strong password in the input field.",
-  "Click 'Lock PDF' to encrypt the document.",
-  "Download your secure PDF. Anyone who opens it will be prompted for the password!"
+  "Enter a User Password if you want to lock the file from being opened.",
+  "Enter an Owner Password if you want to prevent copying/printing.",
+  "Click 'Lock PDF' to encrypt the document and download it."
 ];

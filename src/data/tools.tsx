@@ -3,7 +3,7 @@ import {
   Bot, FileText, ImageIcon, QrCode, Calculator, Briefcase, Search, ArrowRight,
   Wifi, Zap, Settings, Shield, User, Globe, Link, Clock, MapPin, CheckCircle, 
   Smile, Activity, Heart, Calendar, Clipboard, Lock, PenTool, Hash, Download,
-  Share2, FolderOpen, PieChart, FileCheck, FileSignature, Image, Code, MessageSquare,
+  Share2, FolderOpen, PieChart, FileCheck, FileSignature, Image, Code, MessageSquare, Unlock,
   Thermometer, Droplets, Target, Headphones, Scissors
 } from 'lucide-react';
 
@@ -14,6 +14,7 @@ export const CATEGORIES = [
   { id: 'ai', name: 'AI Tools', icon: <Bot className="w-12 h-12"/>, color: 'bg-neo-purple', desc: 'Smart AI assistants for modern workflows.' },
   { id: 'student', name: 'Student Toolkit', icon: <PenTool className="w-12 h-12"/>, color: 'bg-neo-yellow', desc: 'Calculators and planners for academic success.' },
   { id: 'docuforge', name: 'DocuForge', icon: <FileText className="w-12 h-12"/>, color: 'bg-[#9333EA]', desc: 'Advanced document processing and PDF tools.' },
+  { id: 'pdf-tools', name: 'PDF Tools', icon: <FileText className="w-12 h-12"/>, color: 'bg-[#ef4444]', desc: 'Scan, convert, merge, and edit PDFs.' },
   { id: 'finance', name: 'Finance Tools', icon: <PieChart className="w-12 h-12"/>, color: 'bg-neo-blue', desc: 'Calculators and trackers for your personal finances.' },
   { id: 'business', name: 'Business Tools', icon: <Briefcase className="w-12 h-12"/>, color: 'bg-neo-yellow', desc: 'Invoices, receipts, and Google-synced business management.' },
   { id: 'social', name: 'Social Tools', icon: <Smile className="w-12 h-12"/>, color: 'bg-neo-pink', desc: 'Text generators and utilities for social media.' },
@@ -32,9 +33,13 @@ export interface Tool {
   comingSoon: boolean;
   mobileOnly?: boolean;
   requiresLogin?: boolean;
+  customUrl?: string;
 }
 
 const RAW_TOOLS = [
+  // DocuForge Flagship Feature
+  { id: 'docuforge-workspace', name: 'DocuForge Workspace', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false, customUrl: '/docuforge' },
+
   // Daily Utility Tool
   { name: 'QR Generator', category: 'daily-utility', icon: <QrCode className="w-6 h-6"/>, comingSoon: false },
   { name: 'QR Scanner', category: 'daily-utility', icon: <QrCode className="w-6 h-6"/>, comingSoon: false, mobileOnly: true },
@@ -86,7 +91,7 @@ const RAW_TOOLS = [
   { name: 'Compress Image', category: 'file', icon: <Image className="w-6 h-6"/>, comingSoon: false },
   { name: 'Compress PDF', category: 'file', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
   { name: 'Merge PDF', category: 'file', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'OCR Text', category: 'file', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+
   { name: 'PDF Password', category: 'file', icon: <Lock className="w-6 h-6"/>, comingSoon: false },
 
   // AI Tools
@@ -123,19 +128,22 @@ const RAW_TOOLS = [
   { name: 'Resume Builder', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
   { name: 'ATS Checker', category: 'docuforge', icon: <FileCheck className="w-6 h-6"/>, comingSoon: false },
   { name: 'Cover Letter', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Doc PDF Merge', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Split PDF', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Doc PDF Compress', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Image to PDF', category: 'docuforge', icon: <Image className="w-6 h-6"/>, comingSoon: false },
-  { name: 'PDF to Image', category: 'docuforge', icon: <Image className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Word to PDF', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'PDF to Word', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Excel to PDF', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'PPT to PDF', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Digital Signature', category: 'docuforge', icon: <FileSignature className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Watermark PDF', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
-  { name: 'Document Scan', category: 'docuforge', icon: <FileText className="w-6 h-6"/>, comingSoon: false, mobileOnly: true },
-  { name: 'OCR Scanner', category: 'docuforge', icon: <Search className="w-6 h-6"/>, comingSoon: false, mobileOnly: true },
+  // PDF Tools Category
+  { name: 'Open PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Merge PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Split PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Modify PDF', category: 'pdf-tools', icon: <Settings className="w-6 h-6"/>, comingSoon: false },
+  { name: 'PDF Password', category: 'pdf-tools', icon: <Lock className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Unlock PDF', category: 'pdf-tools', icon: <Unlock className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Document Scan', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false, customUrl: '/docuforge/scan' },
+  { name: 'Digital Signature', category: 'pdf-tools', icon: <FileSignature className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Image to PDF', category: 'pdf-tools', icon: <Image className="w-6 h-6"/>, comingSoon: false },
+  { name: 'PDF to Image', category: 'pdf-tools', icon: <Image className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Text to PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'PDF to Text', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'OCR Scanner', category: 'pdf-tools', icon: <Search className="w-6 h-6"/>, comingSoon: false, mobileOnly: true },
+  
+  // Other DocuForge
   { name: 'ID Card Gen', category: 'docuforge', icon: <User className="w-6 h-6"/>, comingSoon: false },
 
   // Finance Tool
