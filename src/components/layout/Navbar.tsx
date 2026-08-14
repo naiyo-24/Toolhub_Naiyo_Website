@@ -29,6 +29,7 @@ export function Navbar() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Tools', path: '/tools' },
+    { name: 'LoanDesk', path: '/loandesk' },
     { name: 'Features', path: '/features' },
     { name: 'Contact', path: '/contact' }
   ];

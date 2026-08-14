@@ -23,6 +23,8 @@ import DocuForgeDashboard from './pages/docuforge/DocuForgeDashboard';
 import WebScanner from './pages/docuforge/WebScanner';
 import ImageEditor from './pages/docuforge/ImageEditor';
 import PDFPreview from './pages/docuforge/PDFPreview';
+import LoanDesk from './pages/LoanDesk';
+
 function App() {
   return (
     <Router>
@@ -31,7 +33,7 @@ function App() {
         <WelcomeModal />
         <ScrollToTop />
         <Navbar />
-        <main>
+        <main className="relative">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tools" element={<ToolsDirectory />} />
@@ -40,6 +42,7 @@ function App() {
             <Route path="/business-tools" element={<Navigate to="/tools/business" replace />} />
             <Route path="/business-tools/:toolId" element={<BusinessToolLayout />} />
             <Route path="/features" element={<Features />} />
+            <Route path="/loandesk" element={<LoanDesk />} />
             <Route path="/download" element={<DownloadPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />

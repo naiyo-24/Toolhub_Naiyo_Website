@@ -23,7 +23,7 @@ export default function ToolsDirectory() {
 
   return (
     <div className="min-h-screen bg-neo-bg font-sans selection:bg-neo-yellow pt-24 pb-20" style={{ backgroundImage: 'radial-gradient(circle, #e5e7eb 2px, transparent 2.5px)', backgroundSize: '32px 32px' }}>
-      <div className="container mx-auto px-4 max-w-[1600px]">
+      <div className="container mx-auto px-6 sm:px-8 max-w-[1600px]">
         
         {/* HEADER & SEARCH */}
         <div className="bg-white border-4 border-black p-8 md:p-12 mb-12 shadow-[12px_12px_0px_0px_#000] relative rounded-2xl flex flex-col items-center text-center">

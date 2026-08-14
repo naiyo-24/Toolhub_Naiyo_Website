@@ -8,6 +8,7 @@ import { MobileOnlyModal } from '../components/ui/MobileOnlyModal';
 import { LoginRequiredModal } from '../components/ui/LoginRequiredModal';
 import { AppPromoModal } from '../components/ui/AppPromoModal';
 import { useAuth } from '../lib/AuthContext';
+import { AdSenseBanner } from '../components/ui/AdSenseBanner';
 
 export default function Category() {
   const navigate = useNavigate();
@@ -120,6 +121,11 @@ export default function Category() {
               </motion.div>
             ))}
           </div>
+        </div>
+
+        {/* ADVERTISEMENT SECTION */}
+        <div className="mt-12">
+          <AdSenseBanner slot="0987654321" style={{ minHeight: '90px' }} />
         </div>
 
       </div>

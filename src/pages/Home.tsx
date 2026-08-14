@@ -7,6 +7,8 @@ import {
   WifiOff, Zap, CheckCircle2
 } from "lucide-react";
 import { CATEGORIES, ALL_TOOLS, getToolColor, getCategoryName } from "../data/tools";
+import { AdSenseBanner } from "../components/ui/AdSenseBanner";
+import { CompanyPromoBanner } from "../components/ui/CompanyPromoBanner";
 
 const APP_SCREENSHOTS = [
   "/assets/images/1.jpeg",
@@ -66,7 +68,7 @@ export default function Home() {
       <main className="flex-grow">
         {/* HERO SECTION */}
         <section className="relative pt-4 pb-8 lg:pt-10 lg:pb-24 2xl:pt-8 2xl:pb-16 overflow-hidden border-b-4 border-black bg-neo-bg" style={{ backgroundImage: 'radial-gradient(circle, #e5e7eb 2px, transparent 2.5px)', backgroundSize: '32px 32px' }} >
-          <div className="container mx-auto px-4 max-w-6xl 2xl:max-w-[1400px]">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl 2xl:max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 2xl:gap-16 items-center">
               <div className="space-y-3 lg:space-y-4 2xl:space-y-4 relative z-10 p-4 -ml-4">
                 <div className="inline-block bg-neo-yellow px-4 py-2 lg:px-4 lg:py-1.5 2xl:px-8 2xl:py-3 border-4 border-black rounded-xl font-black text-2xl lg:text-2xl 2xl:text-6xl shadow-[4px_4px_0px_0px_#000] 2xl:shadow-[6px_6px_0px_0px_#000]">
@@ -98,7 +100,7 @@ export default function Home() {
               </div>
 
               {/* Mockup Slider */}
-              <div className="relative flex justify-center lg:justify-end z-10 pt-6 lg:pt-0 lg:pr-8 2xl:pr-16 2xl:-mt-24">
+              <div className="relative flex justify-center lg:justify-end z-10 pt-6 lg:pt-0 lg:pr-8 2xl:pr-16">
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: [0, -15, 0], opacity: 1 }}
@@ -106,7 +108,7 @@ export default function Home() {
                     y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                     opacity: { duration: 0.6 }
                   }}
-                  className="relative aspect-[1/2.1] h-[50vh] max-h-[300px] lg:max-h-[340px] 2xl:max-h-[500px] min-h-[250px] bg-white border-[4px] 2xl:border-8 border-black shadow-2xl shadow-black/40 overflow-hidden flex flex-col rounded-xl 2xl:rounded-[2rem]"
+                  className="relative aspect-[738/1600] w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px] 2xl:max-w-[340px] bg-white border-[4px] 2xl:border-8 border-black shadow-2xl shadow-black/40 overflow-hidden flex flex-col rounded-xl 2xl:rounded-[2rem]"
                 >
                   {/* Dynamic Island */}
                   <div className="absolute top-1.5 2xl:top-2 inset-x-0 mx-auto w-12 h-4 2xl:w-16 2xl:h-5 bg-black rounded-full z-50 shadow-md"></div>
@@ -121,7 +123,7 @@ export default function Home() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="absolute inset-0 w-full h-full object-contain bg-white"
+                        className="absolute inset-0 w-full h-full object-cover"
                         alt={`App Screenshot ${currentImage + 1}`}
                       />
                     </AnimatePresence>
@@ -134,7 +136,7 @@ export default function Home() {
 
         {/* STATISTICS BAR */}
         <section className="bg-white border-b-4 border-black py-4">
-          <div className="container mx-auto px-4 max-w-6xl">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4 flex-1 justify-center md:border-r-4 md:border-black pr-4 py-2">
                 <div className="w-12 h-12 bg-neo-purple border-4 border-black rounded-xl flex items-center justify-center shadow-[4px_4px_0px_0px_#000]">
@@ -176,38 +178,116 @@ export default function Home() {
           </div>
         </section>
 
+        {/* LOANDESK PROMO BANNER */}
+        <section className="bg-neo-blue border-b-4 border-black py-12 lg:py-16 relative overflow-hidden">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl relative z-10">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+              <div className="text-white">
+                <span className="inline-block bg-neo-yellow text-black border-4 border-black rounded-xl font-black px-4 py-1 text-sm uppercase mb-4 shadow-[2px_2px_0px_0px_#000]">
+                  New Module
+                </span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase mb-4 leading-none">
+                  Introducing<br />LoanDesk
+                </h2>
+                <p className="text-lg md:text-xl font-bold max-w-xl text-blue-50">
+                  The ultimate Banking Verification & Document Intelligence Platform designed exclusively for loan officers and financial consultants.
+                </p>
+              </div>
+              <div className="shrink-0 w-full lg:w-auto">
+                <Link
+                  to="/loandesk"
+                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-black font-black uppercase text-xl border-4 border-black rounded-xl px-8 py-5 shadow-[6px_6px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_0px_#000] transition-all"
+                >
+                  Explore Features <ArrowRight className="w-6 h-6" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        </section>
+
         {/* CATEGORIES SECTION */}
         <section className="py-20 bg-neo-bg border-b-4 border-black" style={{ backgroundImage: 'radial-gradient(circle, #e5e7eb 1px, transparent 1.5px)', backgroundSize: '40px 40px', backgroundPosition: 'center' }} >
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 bg-neo-bg p-4 inline-block md:flex -ml-4 w-full">
-              <div>
-                <span className="inline-block bg-neo-yellow border-4 border-black rounded-xl font-black px-3 py-1 text-sm uppercase mb-2 shadow-[2px_2px_0px_0px_#000]"> Explore </span>
-                <h2 className="text-5xl font-black uppercase">Categories</h2>
+          <div className="w-full max-w-[1536px] mx-auto flex justify-center px-4">
+            {/* Left Ad */}
+            <div className="hidden xl:block w-[160px] shrink-0 mr-4 2xl:mr-8 mt-24">
+              <div className="sticky top-24">
+                <AdSenseBanner slot="cat-left" format="rectangle" style={{ minHeight: '600px', width: '160px' }} />
               </div>
-              <Link to="/tools" className="mt-4 md:mt-0 inline-flex items-center gap-2 bg-white border-4 border-black rounded-xl font-black uppercase px-6 py-3 shadow-[4px_4px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_0px_#000] transition-all">
-                VIEW ALL TOOLS <ArrowRight className="w-5 h-5" />
-              </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {CATEGORIES.map((cat, idx) => (
-                <Link key={idx} to={`/tools/${cat.id}`} className={`${cat.color} border-4 border-black rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[6px_6px_0px_0px_#000] hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_#000] transition-all aspect-square`}>
-                  <div className="bg-white border-4 border-black rounded-xl p-3 mb-4 shadow-[4px_4px_0px_0px_#000]">
-                    {cat.icon}
-                  </div>
-                  <h3 className="font-black text-sm uppercase leading-tight mb-1">{cat.name}</h3>
-                  <p className="font-bold text-[10px] uppercase bg-white/50 px-2 border-2 border-black rounded-lg">
-                    {ALL_TOOLS.filter(t => t.category === cat.id).length} Tools
-                  </p>
+            {/* Main Content */}
+            <div className="flex-1 max-w-6xl w-full">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 bg-neo-bg py-4 px-2 -ml-2 md:p-4 md:-ml-4 md:flex w-full">
+                <div>
+                  <span className="inline-block bg-neo-yellow border-4 border-black rounded-xl font-black px-3 py-1 text-sm uppercase mb-2 shadow-[2px_2px_0px_0px_#000]"> Explore </span>
+                  <h2 className="text-5xl font-black uppercase">Categories</h2>
+                </div>
+                <Link to="/tools" className="mt-4 md:mt-0 inline-flex items-center gap-2 bg-white border-4 border-black rounded-xl font-black uppercase px-6 py-3 shadow-[4px_4px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_0px_#000] transition-all">
+                  VIEW ALL TOOLS <ArrowRight className="w-5 h-5" />
                 </Link>
-              ))}
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {CATEGORIES.map((cat, idx) => (
+                  <Link key={idx} to={`/tools/${cat.id}`} className={`${cat.color} border-4 border-black rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-[6px_6px_0px_0px_#000] hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_#000] transition-all aspect-square`}>
+                    <div className="bg-white border-4 border-black rounded-xl p-3 mb-4 shadow-[4px_4px_0px_0px_#000]">
+                      {cat.icon}
+                    </div>
+                    <h3 className="font-black text-sm uppercase leading-tight mb-1">{cat.name}</h3>
+                    <p className="font-bold text-[10px] uppercase bg-white/50 px-2 border-2 border-black rounded-lg">
+                      {ALL_TOOLS.filter(t => t.category === cat.id).length} Tools
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Ad */}
+            <div className="hidden xl:block w-[160px] shrink-0 ml-4 2xl:ml-8 mt-24">
+              <div className="sticky top-24">
+                <AdSenseBanner slot="cat-right" format="rectangle" style={{ minHeight: '600px', width: '160px' }} />
+              </div>
             </div>
           </div>
         </section>
 
+        {/* PDF TOOLS PROMO BANNER */}
+        <section className="bg-neo-purple border-b-4 border-black py-12 lg:py-16 relative overflow-hidden">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl relative z-10">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+              <div className="text-white">
+                <span className="inline-block bg-neo-yellow text-black border-4 border-black rounded-xl font-black px-4 py-1 text-sm uppercase mb-4 shadow-[2px_2px_0px_0px_#000]">
+                  PDF Suite
+                </span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase mb-4 leading-none">
+                  DocuForge<br />PDF Tools
+                </h2>
+                <p className="text-lg md:text-xl font-bold max-w-xl text-purple-50">
+                  Split, merge, edit, compress, and scan PDF documents right in your browser. Fast, secure, and offline-capable.
+                </p>
+              </div>
+              <div className="shrink-0 w-full lg:w-auto">
+                <Link
+                  to="/tools/pdf-tools"
+                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-black font-black uppercase text-xl border-4 border-black rounded-xl px-8 py-5 shadow-[6px_6px_0px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_0px_#000] transition-all"
+                >
+                  Explore Tools <ArrowRight className="w-6 h-6" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        </section>
+
+        {/* COMPANY PROMO BANNER */}
+        <CompanyPromoBanner />
+
         {/* FEATURED TOOLS */}
         <section className="py-20 border-b-4 border-black bg-neo-bg">
-          <div className="container mx-auto px-4 max-w-6xl">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
             <div className="mb-12 inline-block">
               <span className="inline-block bg-neo-yellow border-4 border-black rounded-xl font-black px-3 py-1 text-sm uppercase mb-2 shadow-[2px_2px_0px_0px_#000]"> Trending </span>
               <h2 className="text-5xl font-black uppercase">Featured Tools</h2>
@@ -253,8 +333,8 @@ export default function Home() {
                   key={dot}
                   onClick={() => setCurrentSlide(dot)}
                   className={`w-3 h-3 rounded-full transition-all ${currentSlide === dot
-                      ? 'bg-black scale-125'
-                      : 'bg-gray-300 border-2 border-black hover:bg-gray-400'
+                    ? 'bg-black scale-125'
+                    : 'bg-gray-300 border-2 border-black hover:bg-gray-400'
                     }`}
                 />
               ))}
@@ -290,6 +370,12 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+        {/* ADVERTISEMENT SECTION */}
+        <section className="py-8 bg-neo-bg">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
+            <AdSenseBanner slot="1234567890" style={{ minHeight: '90px' }} />
           </div>
         </section>
       </main>
