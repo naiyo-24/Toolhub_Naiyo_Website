@@ -17,7 +17,7 @@ interface AdSenseBannerProps {
 }
 
 export function AdSenseBanner({
-  client = 'ca-pub-XXXXXXXXXXXXXXXX', // Placeholder client ID
+  client = 'ca-pub-8699813078861252', // Actual client ID
   slot,
   format = 'auto',
   responsive = true,
