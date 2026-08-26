@@ -1,5 +1,5 @@
 const hostname = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
-export const API_BASE_URL = (import.meta as any).env?.DEV ? 'http://localhost:8000' : `https://backend.toolhubutility.com`;
+export const API_BASE_URL = (import.meta as any).env?.DEV ? 'http://localhost:8000' : `https://toolhubbackend.naiyo24.com`;
 export const formatFileUrl = (url: string) => {
   if (!url) return '';
   try {

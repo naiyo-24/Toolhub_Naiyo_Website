@@ -19,15 +19,15 @@ export default defineConfig({
       protocol: 'wss'
     },
     proxy: {
-      '/docuforge': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/file-tools': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/auth': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/contact': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/finance-tools': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/internet-tools': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/daily-utility': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/business-tools': { target: 'https://backend.toolhubutility.com', changeOrigin: true },
-      '/student-toolkit': { target: 'https://backend.toolhubutility.com', changeOrigin: true }
+      '/docuforge': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/file-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/auth': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/contact': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/finance-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/internet-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/daily-utility': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/business-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
+      '/student-toolkit': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true }
     },
     headers: {
       "Cross-Origin-Opener-Policy": "same-origin-allow-popups"
