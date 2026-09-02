@@ -25,11 +25,12 @@ export function AdSenseBanner({
   className = ''
 }: AdSenseBannerProps) {
   const adRef = useRef<HTMLModElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const isLoaded = useRef(false);
 
   useEffect(() => {
     // Only push the ad if it hasn't been loaded yet and we're in the browser
-    if (typeof window !== 'undefined' && !isLoaded.current) {
+    if (typeof window !== 'undefined' && !isLoaded.current && containerRef.current && containerRef.current.offsetWidth > 0) {
       try {
         window.adsbygoogle = window.adsbygoogle || [];
         window.adsbygoogle.push({});
@@ -41,7 +42,7 @@ export function AdSenseBanner({
   }, []);
 
   return (
-    <div className={`relative w-full overflow-hidden flex justify-center items-center bg-gray-100 border-4 border-dashed border-gray-300 rounded-xl p-2 min-h-[90px] ${className}`}>
+    <div ref={containerRef} className={`relative w-full overflow-hidden flex justify-center items-center bg-gray-100 border-4 border-dashed border-gray-300 rounded-xl p-2 min-h-[90px] ${className}`}>
       {/* Dev placeholder for when ads are blocked or offline before timeout fires */}
       <div className="absolute text-gray-400 font-bold uppercase text-xs tracking-widest z-0">
         Advertisement

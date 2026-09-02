@@ -213,7 +213,7 @@ export default function Home() {
             {/* Left Ad */}
             <div className="hidden xl:block w-[160px] shrink-0 mr-4 2xl:mr-8 mt-24">
               <div className="sticky top-24">
-                <AdSenseBanner slot="cat-left" format="rectangle" style={{ minHeight: '600px', width: '160px' }} />
+                <AdSenseBanner slot="9385720759" format="rectangle" style={{ minHeight: '600px', width: '160px' }} />
               </div>
             </div>
 
@@ -247,7 +247,7 @@ export default function Home() {
             {/* Right Ad */}
             <div className="hidden xl:block w-[160px] shrink-0 ml-4 2xl:ml-8 mt-24">
               <div className="sticky top-24">
-                <AdSenseBanner slot="cat-right" format="rectangle" style={{ minHeight: '600px', width: '160px' }} />
+                <AdSenseBanner slot="9385720759" format="rectangle" style={{ minHeight: '600px', width: '160px' }} />
               </div>
             </div>
           </div>
@@ -375,7 +375,7 @@ export default function Home() {
         {/* ADVERTISEMENT SECTION */}
         <section className="py-8 bg-neo-bg">
           <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
-            <AdSenseBanner slot="1234567890" style={{ minHeight: '90px' }} />
+            <AdSenseBanner slot="9385720759" style={{ minHeight: '90px' }} />
           </div>
         </section>
       </main>

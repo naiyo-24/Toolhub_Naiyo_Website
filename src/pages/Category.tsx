@@ -125,7 +125,7 @@ export default function Category() {
 
         {/* ADVERTISEMENT SECTION */}
         <div className="mt-12">
-          <AdSenseBanner slot="0987654321" style={{ minHeight: '90px' }} />
+          <AdSenseBanner slot="9385720759" style={{ minHeight: '90px' }} />
         </div>
 
       </div>
