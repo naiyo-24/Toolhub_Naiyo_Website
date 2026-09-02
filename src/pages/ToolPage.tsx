@@ -28,6 +28,11 @@ import { WordToPDF, wordToPDFInstructions } from '../components/tools/WordToPDF'
 import { PDFToWord, pdfToWordInstructions } from '../components/tools/PDFToWord';
 import { ExcelToPDF, excelToPDFInstructions } from '../components/tools/ExcelToPDF';
 import { PPTToPDF, pptToPDFInstructions } from '../components/tools/PPTToPDF';
+import { PDFToExcel, pdfToExcelInstructions } from '../components/tools/PDFToExcel';
+import { PDFToPPT, pdfToPPTInstructions } from '../components/tools/PDFToPPT';
+import { ExcelToCSV, excelToCSVInstructions } from '../components/tools/ExcelToCSV';
+import { CSVToExcel, csvToExcelInstructions } from '../components/tools/CSVToExcel';
+import { CSVToPDF, csvToPDFInstructions } from '../components/tools/CSVToPDF';
 import { WatermarkPDF, watermarkPDFInstructions } from '../components/tools/WatermarkPDF';
 import { DigitalSignature, digitalSignatureInstructions } from '../components/tools/DigitalSignature';
 import { CoverLetter, coverLetterInstructions } from '../components/tools/CoverLetter';
@@ -219,6 +224,11 @@ const TOOL_REGISTRY: Record<string, { component: React.ComponentType<any>, instr
   'pdf-to-word': { component: PDFToWord, instructions: pdfToWordInstructions },
   'excel-to-pdf': { component: ExcelToPDF, instructions: excelToPDFInstructions },
   'ppt-to-pdf': { component: PPTToPDF, instructions: pptToPDFInstructions },
+  'pdf-to-excel': { component: PDFToExcel, instructions: pdfToExcelInstructions },
+  'pdf-to-ppt': { component: PDFToPPT, instructions: pdfToPPTInstructions },
+  'excel-to-csv': { component: ExcelToCSV, instructions: excelToCSVInstructions },
+  'csv-to-excel': { component: CSVToExcel, instructions: csvToExcelInstructions },
+  'csv-to-pdf': { component: CSVToPDF, instructions: csvToPDFInstructions },
   'watermark-pdf': { component: WatermarkPDF, instructions: watermarkPDFInstructions },
   'digital-signature': { component: DigitalSignature, instructions: digitalSignatureInstructions },
   'cover-letter': { component: CoverLetter, instructions: coverLetterInstructions },

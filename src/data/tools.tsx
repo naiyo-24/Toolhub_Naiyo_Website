@@ -142,6 +142,15 @@ const RAW_TOOLS = [
   { name: 'Text to PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
   { name: 'PDF to Text', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
   { name: 'OCR Scanner', category: 'pdf-tools', icon: <Search className="w-6 h-6"/>, comingSoon: false, mobileOnly: true },
+  { name: 'Word to PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'PDF to Word', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Excel to PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'PDF to Excel', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'PPT to PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'PDF to PPT', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'Excel to CSV', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'CSV to Excel', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
+  { name: 'CSV to PDF', category: 'pdf-tools', icon: <FileText className="w-6 h-6"/>, comingSoon: false },
   
   // Other DocuForge
   { name: 'ID Card Gen', category: 'docuforge', icon: <User className="w-6 h-6"/>, comingSoon: false },
