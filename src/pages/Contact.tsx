@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Send, MapPin, Mail, User, Phone, Clock, Linkedin, Instagram, Facebook, Youtube, Github, Loader2, CheckCircle } from 'lucide-react';
 import { API_BASE_URL } from '../config/api';
+import { AdSenseBanner } from '../components/ui/AdSenseBanner';
+
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -222,6 +224,13 @@ export default function Contact() {
 
         </div>
       </div>
-    </div>
+    
+        {/* ADVERTISEMENT SECTION */}
+        <section className="py-8 bg-neo-bg mt-auto">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
+            <AdSenseBanner slot="9385720759" style={{ minHeight: '90px' }} />
+          </div>
+        </section>
+</div>
   );
 }

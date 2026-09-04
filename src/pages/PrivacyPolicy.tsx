@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { AdSenseBanner } from '../components/ui/AdSenseBanner';
+
 
 export default function PrivacyPolicy() {
   useEffect(() => {
@@ -158,6 +160,13 @@ export default function PrivacyPolicy() {
           </div>
         </motion.div>
       </div>
-    </div>
+    
+        {/* ADVERTISEMENT SECTION */}
+        <section className="py-8 bg-neo-bg mt-auto">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
+            <AdSenseBanner slot="9385720759" style={{ minHeight: '90px' }} />
+          </div>
+        </section>
+</div>
   );
 }

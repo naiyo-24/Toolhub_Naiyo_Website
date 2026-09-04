@@ -24,6 +24,7 @@ import WebScanner from './pages/docuforge/WebScanner';
 import ImageEditor from './pages/docuforge/ImageEditor';
 import PDFPreview from './pages/docuforge/PDFPreview';
 import LoanDesk from './pages/LoanDesk';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
                 </Routes>
               </DocuForgeProvider>
             } />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

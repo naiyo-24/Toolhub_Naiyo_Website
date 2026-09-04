@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Construction, CheckCircle2 } from 'lucide-react';
 import { ALL_TOOLS, getToolColor, getCategoryName } from '../data/tools';
+import { AdSenseBanner } from '../components/ui/AdSenseBanner';
 
 // Import Tool Components
 import { QRGenerator, qrGeneratorInstructions } from '../components/tools/QRGenerator';
@@ -383,6 +384,11 @@ export default function ToolPage() {
             </div>
           </div>
         )}
+
+        {/* ADVERTISEMENT SECTION */}
+        <div className="mt-16">
+          <AdSenseBanner slot="9385720759" style={{ minHeight: '90px' }} />
+        </div>
 
       </div>
     </div>

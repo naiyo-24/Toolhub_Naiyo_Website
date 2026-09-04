@@ -7,6 +7,8 @@ import { ComingSoonModal } from '../components/ui/ComingSoonModal';
 import { MobileOnlyModal } from '../components/ui/MobileOnlyModal';
 import { LoginRequiredModal } from '../components/ui/LoginRequiredModal';
 import { useAuth } from '../lib/AuthContext';
+import { AdSenseBanner } from '../components/ui/AdSenseBanner';
+
 
 export default function ToolsDirectory() {
   const navigate = useNavigate();
@@ -138,6 +140,25 @@ export default function ToolsDirectory() {
             </div>
           )}
         </div>
+
+        {/* SEO TEXT SECTION */}
+        <div className="mt-24 bg-white border-4 border-black p-8 md:p-12 shadow-[12px_12px_0px_0px_#000] rounded-2xl max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black uppercase mb-6 border-b-4 border-black pb-4 inline-block">Why Use ToolHub's Directory?</h2>
+          <div className="prose prose-lg max-w-none prose-headings:font-black prose-p:font-bold prose-p:text-gray-700 space-y-6 text-left">
+            <p>
+              The ToolHub directory is meticulously organized to provide you with the fastest access to the utilities you need. Instead of navigating through multiple websites or downloading bulky software, our platform aggregates over 150 highly specialized tools into one unified, brutalist-inspired interface.
+            </p>
+            <h3 className="text-2xl mt-8 mb-4 uppercase">Comprehensive Categories</h3>
+            <p>
+              Whether you are looking to manipulate PDF documents, generate complex QR codes for marketing campaigns, calculate loan EMIs and SIP returns, or encode JSON data, our categorized structure ensures you find exactly what you need in seconds. Our most popular categories include <strong>PDF Suite</strong>, <strong>Calculators</strong>, and <strong>Developer Tools</strong>.
+            </p>
+            <h3 className="text-2xl mt-8 mb-4 uppercase">Offline-First Reliability</h3>
+            <p>
+              We understand that productivity shouldn't depend on an internet connection. Most tools listed in this directory leverage Progressive Web App (PWA) capabilities, meaning they function entirely on your device. This guarantees lightning-fast execution times and ensures your sensitive documents and data are never sent to our servers.
+            </p>
+          </div>
+        </div>
+
       </div>
       <ComingSoonModal 
         isOpen={!!comingSoonTool}
@@ -154,6 +175,13 @@ export default function ToolsDirectory() {
         onClose={() => setLoginRequiredTool(null)}
         toolName={loginRequiredTool || ''}
       />
-    </div>
+    
+        {/* ADVERTISEMENT SECTION */}
+        <section className="py-8 bg-neo-bg mt-auto">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
+            <AdSenseBanner slot="9385720759" style={{ minHeight: '90px' }} />
+          </div>
+        </section>
+</div>
   );
 }

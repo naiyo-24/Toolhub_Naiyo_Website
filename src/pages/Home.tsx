@@ -372,6 +372,41 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* WHAT IS TOOLHUB SECTION */}
+        <section className="py-20 bg-white border-b-4 border-black">
+          <div className="container mx-auto px-6 sm:px-8 max-w-4xl text-center">
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-8 inline-block bg-neo-yellow border-4 border-black px-6 py-2 shadow-[6px_6px_0px_0px_#000] rotate-[-1deg]">What is ToolHub?</h2>
+            <div className="prose prose-lg mx-auto text-left prose-headings:font-black prose-p:font-bold prose-p:text-gray-800 space-y-6">
+              <p>
+                ToolHub is a comprehensive suite of over 150 free, online and offline utilities designed to make your digital life easier. Whether you are a student, developer, designer, or business professional, our platform provides instant access to essential tools without the need for multiple apps or expensive subscriptions.
+              </p>
+              <p>
+                From advanced PDF manipulation (splitting, merging, compressing) to everyday calculators (BMI, Age, EMI) and developer utilities (JSON formatter, Base64 encoder), ToolHub centralizes your workflow. We believe in high-performance, privacy-first software, which is why most of our tools run entirely in your browser using Progressive Web App (PWA) technology. Your data never leaves your device.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="py-20 bg-neo-purple border-b-4 border-black">
+          <div className="container mx-auto px-6 sm:px-8 max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-12 text-white text-center">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              {[
+                { q: "Is ToolHub completely free to use?", a: "Yes! All tools on our platform are 100% free. We sustain the platform through non-intrusive advertisements." },
+                { q: "Do I need an internet connection?", a: "Many of our tools, including calculators and converters, work entirely offline once the site is loaded, thanks to our PWA architecture." },
+                { q: "Is my data safe and private?", a: "Absolutely. Most file processing, such as PDF editing and image conversion, happens locally on your device. We do not upload your sensitive files to our servers." },
+                { q: "Can I use ToolHub on my mobile phone?", a: "Yes, ToolHub is fully responsive and can be installed as an app on your iOS or Android device directly from your browser." },
+              ].map((faq, idx) => (
+                <div key={idx} className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000] rounded-xl hover:-translate-y-1 transition-transform">
+                  <h3 className="font-black text-xl uppercase mb-2">{faq.q}</h3>
+                  <p className="font-bold text-gray-700">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         {/* ADVERTISEMENT SECTION */}
         <section className="py-8 bg-neo-bg">
           <div className="container mx-auto px-6 sm:px-8 max-w-6xl">

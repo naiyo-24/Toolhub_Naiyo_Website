@@ -1,6 +1,8 @@
 import React from 'react';
 import { Target, Users, Zap, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { AdSenseBanner } from '../components/ui/AdSenseBanner';
+
 
 export default function About() {
   return (
@@ -16,8 +18,11 @@ export default function About() {
             <h1 className="text-5xl md:text-8xl font-black uppercase leading-[0.9] tracking-tighter mb-6">
               THE STORY <br /> BEHIND <br /> <span className="bg-neo-blue text-white px-2 mt-2 inline-block border-4 border-black">TOOLHUB</span>
             </h1>
-            <p className="font-bold text-xl md:text-2xl max-w-2xl leading-relaxed">
-              We were tired of ad-filled, slow, and privacy-invading online tools. So we built the ultimate offline-first utility toolkit. Fast, free, and unapologetically brutalist.
+            <p className="font-bold text-xl md:text-2xl max-w-2xl leading-relaxed mb-4">
+              We were tired of ad-filled, slow, and privacy-invading online tools. Every time we needed a simple PDF merger or JSON formatter, we were met with paywalls, data harvesting, or clunky interfaces.
+            </p>
+            <p className="font-bold text-xl md:text-2xl max-w-2xl leading-relaxed text-gray-700">
+              So we built the ultimate offline-first utility toolkit. Fast, free, and unapologetically brutalist. ToolHub was born out of frustration and evolved into a passion project to give power back to the users.
             </p>
             
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mt-12 bg-gray-100 border-4 border-black p-6 rounded-2xl shadow-[6px_6px_0px_0px_#000] max-w-3xl">
@@ -85,7 +90,30 @@ export default function About() {
           </div>
         </div>
 
+        {/* PRIVACY SECTION */}
+        <div className="mt-24 bg-white border-4 border-black p-8 md:p-12 shadow-[12px_12px_0px_0px_#000]">
+          <h2 className="text-4xl font-black uppercase mb-6 inline-block bg-neo-green px-4 py-2 border-4 border-black rotate-[1deg] shadow-[4px_4px_0px_0px_#000]">Our Commitment to Privacy</h2>
+          <div className="prose prose-lg max-w-none prose-headings:font-black prose-p:font-bold prose-p:text-gray-700 space-y-6 text-left mt-4">
+            <p>
+              In today's digital landscape, your data is often treated as currency. At ToolHub, we fundamentally disagree with this model. We believe that simple digital utilities shouldn't require you to sacrifice your personal information or upload sensitive business documents to unknown servers.
+            </p>
+            <p>
+              That is why we engineered ToolHub to perform almost all of its processing locally on your device. Whether you are generating a barcode, resizing an image, or compressing a confidential PDF, the operation is executed by your browser using WebAssembly and client-side scripts. 
+            </p>
+            <p>
+              We do not track your specific tool usage, we do not read your files, and we certainly do not sell your data. We sustain this free platform strictly through ethical, non-intrusive advertising that does not rely on invasive behavioral tracking.
+            </p>
+          </div>
+        </div>
+
       </div>
-    </div>
+    
+        {/* ADVERTISEMENT SECTION */}
+        <section className="py-8 bg-neo-bg mt-auto">
+          <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
+            <AdSenseBanner slot="9385720759" style={{ minHeight: '90px' }} />
+          </div>
+        </section>
+</div>
   );
 }
