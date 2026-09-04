@@ -336,11 +336,16 @@ export default function ToolPage() {
           <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000] rounded-2xl shrink-0 z-10">
             {tool.icon}
           </div>
-          <div className="text-center md:text-left text-black z-10">
+          <div className="text-center md:text-left text-black z-10 flex-1">
             <span className="inline-block bg-black text-white px-3 py-1 font-black uppercase text-sm mb-4 rounded-xl shadow-[2px_2px_0px_0px_#fff]">
               {getCategoryName(tool.category)}
             </span>
             <h1 className="text-5xl md:text-6xl font-black uppercase leading-tight mb-2 tracking-tight">{tool.name}</h1>
+            {ToolComponentData?.instructions && (
+              <p className="mt-4 font-bold text-lg md:text-xl max-w-2xl text-gray-800">
+                {ToolComponentData.instructions.join(' ')}
+              </p>
+            )}
           </div>
           {/* Decorative background element */}
           <div className="absolute -right-20 -bottom-20 opacity-20 transform rotate-12 scale-150 pointer-events-none">
