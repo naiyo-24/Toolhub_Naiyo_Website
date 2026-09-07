@@ -19,15 +19,15 @@ export default defineConfig({
       protocol: 'wss'
     },
     proxy: {
-      '/docuforge': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/file-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/auth': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/contact': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/finance-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/internet-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/daily-utility': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/business-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true },
-      '/student-toolkit': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true }
+      '/docuforge': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/file-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/auth': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/contact': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/finance-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/internet-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/daily-utility': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/business-tools': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } },
+      '/student-toolkit': { target: 'https://toolhubbackend.naiyo24.com', changeOrigin: true, bypass: (req) => { if (req.headers.accept?.includes('text/html')) return req.url; } }
     },
     headers: {
       "Cross-Origin-Opener-Policy": "same-origin-allow-popups"
