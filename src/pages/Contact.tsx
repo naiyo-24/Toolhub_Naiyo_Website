@@ -20,7 +20,7 @@ export default function Contact() {
     setIsLoading(true);
     setStatus('idle');
     try {
-      const response = await fetch(`${API_BASE_URL}/contact/`, {
+      const response = await fetch(`${API_BASE_URL}/api/contact/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
