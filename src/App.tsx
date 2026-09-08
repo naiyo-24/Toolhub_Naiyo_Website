@@ -25,10 +25,12 @@ import ImageEditor from './pages/docuforge/ImageEditor';
 import PDFPreview from './pages/docuforge/PDFPreview';
 import LoanDesk from './pages/LoanDesk';
 import NotFound from './pages/NotFound';
+import CanonicalTag from './components/layout/CanonicalTag';
 
 function App() {
   return (
     <Router>
+      <CanonicalTag />
       <AuthProvider>
         <SplashScreen />
         <WelcomeModal />
